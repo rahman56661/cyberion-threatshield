@@ -1,0 +1,25 @@
+title: 'Process Injection Burst: Repeated Remote Thread Creation from One Source'
+id: 34ca0e56-d813-5276-8bb1-1fc377b67fb8
+name: injection_burst
+status: experimental
+description: Detects five or more suspicious CreateRemoteThread events from the same source image within one minute, characteristic of reflective injection frameworks looping through targets or migrating payloads.
+references:
+- https://github.com/SigmaHQ/sigma-specification/blob/main/specification/sigma-correlation-rules-specification.md
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.stealth
+- attack.t1055
+correlation:
+  type: event_count
+  rules:
+  - remote_thread_injection
+  group-by:
+  - Computer
+  - SourceImage
+  timespan: 1m
+  condition:
+    gte: 5
+falsepositives:
+- Security products performing bulk instrumentation
+level: high

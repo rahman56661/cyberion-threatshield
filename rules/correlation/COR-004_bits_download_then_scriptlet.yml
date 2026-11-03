@@ -1,0 +1,25 @@
+title: Download via BITSAdmin Followed by Scriptlet Execution
+id: e53fd260-a5be-554c-89f6-ac12f76738fc
+name: bits_download_then_scriptlet
+status: experimental
+description: Correlates BITSAdmin transfer activity with regsvr32 scriptlet execution on the same host within 10 minutes, a typical ingress-tool-transfer then proxy-execution chain.
+references:
+- https://github.com/SigmaHQ/sigma-specification/blob/main/specification/sigma-correlation-rules-specification.md
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.command-and-control
+- attack.t1105
+- attack.t1197
+- attack.t1218.010
+correlation:
+  type: temporal_ordered
+  rules:
+  - bitsadmin_abuse
+  - regsvr32_scriptlet_exec
+  group-by:
+  - Computer
+  timespan: 10m
+falsepositives:
+- Installer frameworks combining BITS delivery and COM registration
+level: high

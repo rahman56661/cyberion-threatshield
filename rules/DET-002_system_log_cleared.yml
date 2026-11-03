@@ -1,0 +1,26 @@
+title: Windows System Event Log Cleared
+id: e5dc7d97-3f17-5bf5-b827-b1d4861adf95
+name: system_log_cleared
+status: experimental
+description: Detects clearing of the Windows System event log (Event ID 104 from the Eventlog provider).
+references:
+- https://attack.mitre.org/techniques/T1685/005/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/Zerologon_CVE-2020-1472_DFIR_System_NetLogon_Error_EventID_5805.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Defense Evasion/DE_104_system_log_cleared.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.defense-impairment
+- attack.t1685.005
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    EventID: 104
+    Provider|contains: Eventlog
+  condition: selection
+falsepositives:
+- Administrator maintenance
+- Lab image preparation
+level: high

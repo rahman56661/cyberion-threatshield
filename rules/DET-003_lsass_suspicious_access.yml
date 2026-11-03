@@ -1,0 +1,44 @@
+title: Suspicious Process Access to LSASS Memory
+id: ec51810c-3d86-5045-a055-5161e976cf6c
+name: lsass_suspicious_access
+status: experimental
+description: Detects a process opening a handle to lsass.exe with access rights typically used for credential dumping (Mimikatz, ProcDump, Dumpert, PPLdump, MiniDump).
+references:
+- https://attack.mitre.org/techniques/T1003/001/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/babyshark_mimikatz_powershell.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/sysmon_10_11_lsass_memdump.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.credential-access
+- attack.t1003.001
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 10
+    TargetImage|endswith: \lsass.exe
+    GrantedAccess|endswith:
+    - '1010'
+    - '1410'
+    - 1fffff
+    - 1f1fff
+    - 143a
+    - '1438'
+    - 101ffb
+    - 1f3fff
+  filter_system:
+    SourceImage|endswith:
+    - \services.exe
+    - \wininit.exe
+    - \csrss.exe
+    - \MsMpEng.exe
+    - \lsm.exe
+  condition: selection and not filter_system
+falsepositives:
+- Endpoint protection / backup agents opening LSASS (add their paths to filter_system)
+- Crash-dump tooling used by IT
+level: high

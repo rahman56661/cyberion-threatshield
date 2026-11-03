@@ -1,0 +1,37 @@
+title: Regsvr32 Scriptlet Execution (Squiblydoo)
+id: 7437e00e-49fb-533e-b6e2-efdf8a3d3cd6
+name: regsvr32_scriptlet_exec
+status: experimental
+description: 'Detects regsvr32.exe loading a COM scriptlet via scrobj.dll or /i: argument, a signed-binary proxy execution technique. Command-line matching (scrobj.dll or a /i:http URL argument) also catches renamed copies of regsvr32.'
+references:
+- https://attack.mitre.org/techniques/T1218/010/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_sysmon_1_lolbin_renamed_regsvr32_scrobj.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.stealth
+- attack.t1218.010
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection_cmd:
+    EventID: 1
+    CommandLine|contains: scrobj.dll
+  selection_bin:
+    EventID: 1
+    Image|endswith: \regsvr32.exe
+    CommandLine|contains:
+    - .sct
+    - /i:http
+    - /i:\\
+  selection_renamed:
+    EventID: 1
+    CommandLine|contains: /i:http
+  condition: selection_cmd or selection_bin or selection_renamed
+falsepositives:
+- 'Legitimate COM registration with /i: switches by installers (rare, normally no .sct/scrobj)'
+level: high

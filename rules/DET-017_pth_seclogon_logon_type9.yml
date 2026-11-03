@@ -1,0 +1,28 @@
+title: Pass-the-Hash Style NewCredentials Logon via seclogo
+id: a2bb57a7-6609-5e8d-85c0-84b653f02659
+name: pth_seclogon_logon_type9
+status: experimental
+description: Detects logon type 9 (NewCredentials) via the seclogo logon process, produced by Mimikatz sekurlsa::pth and secondary-logon abuse.
+references:
+- https://attack.mitre.org/techniques/T1550/002/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/tutto_malseclogon.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/Invoke_TokenDuplication_UAC_Bypass4624.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/security_4624_4673_token_manip.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.lateral-movement
+- attack.t1550.002
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4624
+    LogonType: 9
+    LogonProcessName|contains: seclogo
+  condition: selection
+falsepositives:
+- runas /netonly used legitimately by administrators
+level: high

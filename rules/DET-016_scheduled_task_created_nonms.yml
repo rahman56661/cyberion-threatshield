@@ -1,0 +1,27 @@
+title: Scheduled Task Created Outside Microsoft Task Path
+id: 2dd903f5-3592-5ec6-85e3-d1aff74ec610
+name: scheduled_task_created_nonms
+status: experimental
+description: Detects Event ID 4698 for tasks created outside \Microsoft\ paths, including randomly named tasks created by remote execution tools.
+references:
+- https://attack.mitre.org/techniques/T1053/005/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/temp_scheduled_task_4698_4699.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/PrivEsc_SeImpersonatePriv_enabled_back_for_upnp_localsvc_4698.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.execution
+- attack.t1053.005
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4698
+  filter_ms:
+    TaskName|startswith: \Microsoft\
+  condition: selection and not filter_ms
+falsepositives:
+- Software updaters (Chrome, Adobe, Office) creating their own tasks
+level: medium

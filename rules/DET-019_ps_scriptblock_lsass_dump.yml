@@ -1,0 +1,29 @@
+title: PowerShell Script Block Dumping LSASS Memory
+id: a69f5687-d43b-5145-9f3b-47c7e1d6c9ac
+name: ps_scriptblock_lsass_dump
+status: experimental
+description: Detects Script Block Logging (4104) content referencing lsass together with MiniDump/MiniDumpWriteDump/Out-Minidump.
+references:
+- https://attack.mitre.org/techniques/T1003/001/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/Powershell_4104_MiniDumpWriteDump_Lsass.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.credential-access
+- attack.t1003.001
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection_id:
+    EventID: 4104
+    ScriptBlockText|contains: lsass
+  selection_dump:
+    ScriptBlockText|contains:
+    - MiniDump
+    - Out-Minidump
+    - comsvcs
+  condition: selection_id and selection_dump
+falsepositives:
+- Security tooling / red-team scripts in authorised tests
+level: high

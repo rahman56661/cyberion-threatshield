@@ -1,0 +1,30 @@
+title: UAC Bypass via Registry Shell-Handler Hijack
+id: 355cb6ec-ad34-580f-b514-10a3cd169fb0
+name: uac_bypass_registry_hijack
+status: experimental
+description: Detects writes to HKCU class handlers abused by auto-elevating binaries (eventvwr via mscfile, fodhelper/computerdefaults via ms-settings, sdclt via exefile runas isolatedcommand).
+references:
+- https://attack.mitre.org/techniques/T1548/002/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/Sysmon_UACME_33.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/sysmon_13_1_compmgmtlauncherUACBypass.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.privilege-escalation
+- attack.t1548.002
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 13
+    TargetObject|contains:
+    - \mscfile\shell\open\command
+    - \ms-settings\shell\open\command
+    - \exefile\shell\runas\command
+  condition: selection
+falsepositives:
+- Very rare; some file-association tools modify these keys
+level: high

@@ -1,0 +1,401 @@
+[
+ {
+  "rid": "DET-001",
+  "name": "security_log_cleared",
+  "title": "Windows Security Event Log Cleared",
+  "tactic": "defense-impairment",
+  "techs": [
+   "t1685.005"
+  ],
+  "level": "high",
+  "why": "Log clearing is rarely routine on production hosts and directly destroys audit evidence; any occurrence deserves triage.",
+  "samples": [
+   "Defense Evasion/DE_1102_security_log_cleared.evtx"
+  ],
+  "fps": [
+   "Authorised administrators clearing logs during maintenance or log-rotation",
+   "Lab/golden-image preparation before telemetry capture (seen in 24 dataset samples)"
+  ],
+  "file": "rules/DET-001_security_log_cleared.yml",
+  "id": "a7a4351b-a0df-50ad-a646-84839df08cd2"
+ },
+ {
+  "rid": "DET-002",
+  "name": "system_log_cleared",
+  "title": "Windows System Event Log Cleared",
+  "tactic": "defense-impairment",
+  "techs": [
+   "t1685.005"
+  ],
+  "level": "high",
+  "why": "Same intent as Security log clearing but on the System channel; used to hide service installs and driver loads.",
+  "samples": [
+   "Defense Evasion/DE_104_system_log_cleared.evtx"
+  ],
+  "fps": [
+   "Administrator maintenance",
+   "Lab image preparation"
+  ],
+  "file": "rules/DET-002_system_log_cleared.yml",
+  "id": "e5dc7d97-3f17-5bf5-b827-b1d4861adf95"
+ },
+ {
+  "rid": "DET-003",
+  "name": "lsass_suspicious_access",
+  "title": "Suspicious Process Access to LSASS Memory",
+  "tactic": "credential-access",
+  "techs": [
+   "t1003.001"
+  ],
+  "level": "high",
+  "why": "LSASS holds credential material; broad read/dump rights from non-system binaries are a strong indicator of credential theft.",
+  "samples": [
+   "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+   "Credential Access/babyshark_mimikatz_powershell.evtx"
+  ],
+  "fps": [
+   "Endpoint protection / backup agents opening LSASS (add their paths to filter_system)",
+   "Crash-dump tooling used by IT"
+  ],
+  "file": "rules/DET-003_lsass_suspicious_access.yml",
+  "id": "ec51810c-3d86-5045-a055-5161e976cf6c"
+ },
+ {
+  "rid": "DET-004",
+  "name": "regsvr32_scriptlet_exec",
+  "title": "Regsvr32 Scriptlet Execution (Squiblydoo)",
+  "tactic": "stealth",
+  "techs": [
+   "t1218.010"
+  ],
+  "level": "high",
+  "why": "Scriptlet loading through regsvr32 bypasses application allow-listing and has few legitimate uses.",
+  "samples": [
+   "Execution/exec_sysmon_lobin_regsvr32_sct.evtx",
+   "Execution/exec_sysmon_1_lolbin_renamed_regsvr32_scrobj.evtx"
+  ],
+  "fps": [
+   "Legitimate COM registration with /i: switches by installers (rare, normally no .sct/scrobj)"
+  ],
+  "file": "rules/DET-004_regsvr32_scriptlet_exec.yml",
+  "id": "7437e00e-49fb-533e-b6e2-efdf8a3d3cd6"
+ },
+ {
+  "rid": "DET-005",
+  "name": "rundll32_proxy_exec",
+  "title": "Rundll32 Proxy Execution of Script or URL Handlers",
+  "tactic": "stealth",
+  "techs": [
+   "t1218.011"
+  ],
+  "level": "medium",
+  "why": "Several of these exports are legitimate, but combined with rundll32 they are a common LOLBin execution path; medium keeps analyst load manageable.",
+  "samples": [
+   "Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx",
+   "Execution/exec_sysmon_1_lolbin_rundll32_advpack_RegisterOCX.evtx"
+  ],
+  "fps": [
+   "Software installers calling advpack/setupapi exports",
+   "Help/URL handlers invoking url.dll from legacy apps"
+  ],
+  "file": "rules/DET-005_rundll32_proxy_exec.yml",
+  "id": "0c163b21-d110-5530-ab9f-abfeffb9cb90"
+ },
+ {
+  "rid": "DET-006",
+  "name": "bitsadmin_abuse",
+  "title": "BITSAdmin Used for Transfer or Persistence",
+  "tactic": "persistence",
+  "techs": [
+   "t1197"
+  ],
+  "level": "medium",
+  "why": "BITS is trusted and traffic blends in; /SetNotifyCmdLine specifically gives code execution, so the rule is medium with escalation on notify-cmd.",
+  "samples": [
+   "Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx"
+  ],
+  "fps": [
+   "IT scripts using BITS to distribute software",
+   "Legacy deployment tools"
+  ],
+  "file": "rules/DET-006_bitsadmin_abuse.yml",
+  "id": "7a72880c-6458-5a60-ac08-be7388b42430"
+ },
+ {
+  "rid": "DET-007",
+  "name": "ifeo_debugger_backdoor",
+  "title": "Image File Execution Options Debugger Set (Accessibility Backdoor)",
+  "tactic": "persistence",
+  "techs": [
+   "t1546.008",
+   "t1546.012"
+  ],
+  "level": "high",
+  "why": "Debugger hijacks of accessibility binaries give SYSTEM shell at the logon screen; legitimate debugger use is limited to developer machines.",
+  "samples": [
+   "Persistence/persistence_accessibility_features_osk_sysmon1.evtx"
+  ],
+  "fps": [
+   "Developers attaching debuggers (WinDbg/Visual Studio) via IFEO on workstations"
+  ],
+  "file": "rules/DET-007_ifeo_debugger_backdoor.yml",
+  "id": "df688470-2b8b-5209-8c70-f9081168a387"
+ },
+ {
+  "rid": "DET-008",
+  "name": "runkey_user_writable_path",
+  "title": "Registry Run Key Pointing to User-Writable Path",
+  "tactic": "persistence",
+  "techs": [
+   "t1547.001"
+  ],
+  "level": "medium",
+  "why": "User-writable autostart paths are favoured by commodity malware but also used by benign per-user apps, hence medium.",
+  "samples": [
+   "Persistence/evasion_persis_hidden_run_keyvalue_sysmon_13.evtx"
+  ],
+  "fps": [
+   "Per-user installers (Teams, OneDrive, Zoom) that auto-start from AppData"
+  ],
+  "file": "rules/DET-008_runkey_user_writable_path.yml",
+  "id": "f3c8dda0-2589-5453-b701-dd572803168c"
+ },
+ {
+  "rid": "DET-009",
+  "name": "uac_bypass_registry_hijack",
+  "title": "UAC Bypass via Registry Shell-Handler Hijack",
+  "tactic": "privilege-escalation",
+  "techs": [
+   "t1548.002"
+  ],
+  "level": "high",
+  "why": "These keys are not modified in normal operation and the technique grants a high-integrity shell without a prompt.",
+  "samples": [
+   "Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx",
+   "Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx"
+  ],
+  "fps": [
+   "Very rare; some file-association tools modify these keys"
+  ],
+  "file": "rules/DET-009_uac_bypass_registry_hijack.yml",
+  "id": "355cb6ec-ad34-580f-b514-10a3cd169fb0"
+ },
+ {
+  "rid": "DET-010",
+  "name": "uac_disabled_enablelua",
+  "title": "UAC Disabled via EnableLUA Registry Value",
+  "tactic": "defense-impairment",
+  "techs": [
+   "t1548.002",
+   "t1112"
+  ],
+  "level": "high",
+  "why": "Disabling UAC removes a core privilege-boundary control and is a deliberate action.",
+  "samples": [
+   "Defense Evasion/DE_UAC_Disabled_Sysmon_12_13.evtx"
+  ],
+  "fps": [
+   "Troubleshooting by administrators; legacy-app compatibility GPOs"
+  ],
+  "file": "rules/DET-010_uac_disabled_enablelua.yml",
+  "id": "aa55d211-fe73-51ff-b19e-a183b805f126"
+ },
+ {
+  "rid": "DET-011",
+  "name": "remote_thread_injection",
+  "title": "Remote Thread Created in Commonly Injected Process",
+  "tactic": "stealth",
+  "techs": [
+   "t1055"
+  ],
+  "level": "high",
+  "why": "Cross-process thread creation into a victim process is rarely legitimate for these targets.",
+  "samples": [
+   "Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx",
+   "Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx"
+  ],
+  "fps": [
+   "Accessibility and screen-reader software",
+   "Some AV/EDR and game anti-cheat products"
+  ],
+  "file": "rules/DET-011_remote_thread_injection.yml",
+  "id": "69e4f62f-5db8-592d-ab64-ac942a1c325a"
+ },
+ {
+  "rid": "DET-012",
+  "name": "wmiprvse_suspicious_child",
+  "title": "WMI Provider Host Spawning Command Interpreter or LOLBin",
+  "tactic": "execution",
+  "techs": [
+   "t1047"
+  ],
+  "level": "medium",
+  "why": "WMI remote execution is a staple of lateral movement but is also used by admin tooling.",
+  "samples": [
+   "Lateral Movement/LM_WMI_4624_4688_TargetHost.evtx"
+  ],
+  "fps": [
+   "Management tools (SCCM, monitoring agents) using WMI to run scripts"
+  ],
+  "file": "rules/DET-012_wmiprvse_suspicious_child.yml",
+  "id": "f88711fd-60bc-553c-b0ab-40e61524d3f8"
+ },
+ {
+  "rid": "DET-013",
+  "name": "dcsync_non_machine_account",
+  "title": "DCSync Replication Rights Used by Non-Machine Account",
+  "tactic": "credential-access",
+  "techs": [
+   "t1003.006"
+  ],
+  "level": "critical",
+  "why": "Only domain controllers should replicate; a user account doing so yields all password hashes.",
+  "samples": [
+   "Credential Access/CA_DCSync_4662.evtx"
+  ],
+  "fps": [
+   "Azure AD Connect / MSOL service accounts that legitimately replicate",
+   "Backup or migration tooling with replication rights"
+  ],
+  "file": "rules/DET-013_dcsync_non_machine_account.yml",
+  "id": "14bdf856-5e27-5e2f-83bb-9bfb3c0d5058"
+ },
+ {
+  "rid": "DET-014",
+  "name": "remote_svcctl_access",
+  "title": "Remote Service Control Manager Access via SMB (svcctl)",
+  "tactic": "lateral-movement",
+  "techs": [
+   "t1021.002",
+   "t1569.002"
+  ],
+  "level": "medium",
+  "why": "Remote service creation is a core lateral movement primitive; admin tooling causes noise so medium until correlated.",
+  "samples": [
+   "Lateral Movement/LM_REMCOM_5145_TargetHost.evtx",
+   "Lateral Movement/LM_Remote_Service01_5145_svcctl.evtx"
+  ],
+  "fps": [
+   "Remote administration by IT using sc.exe or management consoles"
+  ],
+  "file": "rules/DET-014_remote_svcctl_access.yml",
+  "id": "2b5401d5-e45b-557a-9b97-46fdb0c5394b"
+ },
+ {
+  "rid": "DET-015",
+  "name": "suspicious_service_install",
+  "title": "Service Installed with Command Interpreter Binary Path",
+  "tactic": "persistence",
+  "techs": [
+   "t1543.003"
+  ],
+  "level": "high",
+  "why": "Legitimate services point at purpose-built executables, not interpreters.",
+  "samples": [
+   "Lateral Movement/LM_Remote_Service02_7045.evtx"
+  ],
+  "fps": [
+   "Admin scripts that register services wrapping cmd (rare)"
+  ],
+  "file": "rules/DET-015_suspicious_service_install.yml",
+  "id": "dcae654e-4a9e-5cc5-91cd-cc302ce79b2b"
+ },
+ {
+  "rid": "DET-016",
+  "name": "scheduled_task_created_nonms",
+  "title": "Scheduled Task Created Outside Microsoft Task Path",
+  "tactic": "execution",
+  "techs": [
+   "t1053.005"
+  ],
+  "level": "medium",
+  "why": "Scheduled tasks are used for persistence and remote execution, but third-party updaters make this noisy; medium.",
+  "samples": [
+   "Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx"
+  ],
+  "fps": [
+   "Software updaters (Chrome, Adobe, Office) creating their own tasks"
+  ],
+  "file": "rules/DET-016_scheduled_task_created_nonms.yml",
+  "id": "2dd903f5-3592-5ec6-85e3-d1aff74ec610"
+ },
+ {
+  "rid": "DET-017",
+  "name": "pth_seclogon_logon_type9",
+  "title": "Pass-the-Hash Style NewCredentials Logon via seclogo",
+  "tactic": "lateral-movement",
+  "techs": [
+   "t1550.002"
+  ],
+  "level": "high",
+  "why": "Type 9 with seclogo is the signature of credential injection; runas /netonly is the main benign source.",
+  "samples": [
+   "Credential Access/tutto_malseclogon.evtx",
+   "Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx"
+  ],
+  "fps": [
+   "runas /netonly used legitimately by administrators"
+  ],
+  "file": "rules/DET-017_pth_seclogon_logon_type9.yml",
+  "id": "a2bb57a7-6609-5e8d-85c0-84b653f02659"
+ },
+ {
+  "rid": "DET-018",
+  "name": "rdp_loopback_tunnel",
+  "title": "RDP Logon from Loopback Address (Tunnelled RDP)",
+  "tactic": "command-and-control",
+  "techs": [
+   "t1572",
+   "t1021.001"
+  ],
+  "level": "high",
+  "why": "Real RDP clients have a routable source address; loopback implies a tunnel such as SSH/plink/chisel.",
+  "samples": [
+   "Command and Control/DE_RDP_Tunnel_5156.evtx",
+   "Command and Control/DE_RDP_Tunneling_4624.evtx"
+  ],
+  "fps": [
+   "Local RDP loopback testing by administrators"
+  ],
+  "file": "rules/DET-018_rdp_loopback_tunnel.yml",
+  "id": "a2e136d7-c4bd-5fa8-ad69-4e59be68e86e"
+ },
+ {
+  "rid": "DET-019",
+  "name": "ps_scriptblock_lsass_dump",
+  "title": "PowerShell Script Block Dumping LSASS Memory",
+  "tactic": "credential-access",
+  "techs": [
+   "t1003.001"
+  ],
+  "level": "high",
+  "why": "Scripted LSASS dumping has no routine administrative use.",
+  "samples": [
+   "Credential Access/Powershell_4104_MiniDumpWriteDump_Lsass.evtx"
+  ],
+  "fps": [
+   "Security tooling / red-team scripts in authorised tests"
+  ],
+  "file": "rules/DET-019_ps_scriptblock_lsass_dump.yml",
+  "id": "a69f5687-d43b-5145-9f3b-47c7e1d6c9ac"
+ },
+ {
+  "rid": "DET-020",
+  "name": "autoelevate_binary_spawns_shell",
+  "title": "Auto-Elevating Binary Spawning Interpreter (UAC Bypass Child)",
+  "tactic": "privilege-escalation",
+  "techs": [
+   "t1548.002"
+  ],
+  "level": "high",
+  "why": "High-integrity interpreter under an auto-elevating parent is a near-certain UAC bypass.",
+  "samples": [
+   "Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx"
+  ],
+  "fps": [
+   "None expected; these binaries do not normally launch interpreters (eventvwr launches mmc.exe, which is excluded)"
+  ],
+  "file": "rules/DET-020_autoelevate_binary_spawns_shell.yml",
+  "id": "b9dfd964-f290-5471-b6df-7165bfafa95f"
+ }
+]

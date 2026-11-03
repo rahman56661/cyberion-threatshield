@@ -1,0 +1,32 @@
+title: Registry Run Key Pointing to User-Writable Path
+id: f3c8dda0-2589-5453-b701-dd572803168c
+name: runkey_user_writable_path
+status: experimental
+description: Detects creation of a Run key value whose target resides in AppData, Users\Public, Temp, ProgramData or Windows\Tasks (a world-writable folder), a common malware persistence pattern.
+references:
+- https://attack.mitre.org/techniques/T1547/001/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Persistence/evasion_persis_hidden_run_keyvalue_sysmon_13.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.persistence
+- attack.t1547.001
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 13
+    TargetObject|contains: \CurrentVersion\Run
+    Details|contains:
+    - \AppData\
+    - \Users\Public\
+    - \Temp\
+    - \ProgramData\
+    - \Windows\Tasks\
+  condition: selection
+falsepositives:
+- Per-user installers (Teams, OneDrive, Zoom) that auto-start from AppData
+level: medium

@@ -1,0 +1,36 @@
+title: Auto-Elevating Binary Spawning Interpreter (UAC Bypass Child)
+id: b9dfd964-f290-5471-b6df-7165bfafa95f
+name: autoelevate_binary_spawns_shell
+status: experimental
+description: Detects eventvwr.exe, sdclt.exe, fodhelper.exe or computerdefaults.exe spawning cmd, PowerShell or script hosts, i.e. the child process of a UAC bypass.
+references:
+- https://attack.mitre.org/techniques/T1548/002/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/Sysmon_UACME_33.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/sysmon_1_13_UACBypass_AppPath_Control.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.privilege-escalation
+- attack.t1548.002
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 1
+    ParentImage|endswith:
+    - \eventvwr.exe
+    - \sdclt.exe
+    - \fodhelper.exe
+    - \computerdefaults.exe
+    Image|endswith:
+    - \cmd.exe
+    - \powershell.exe
+    - \wscript.exe
+    - \mshta.exe
+  condition: selection
+falsepositives:
+- None expected; these binaries do not normally launch interpreters (eventvwr launches mmc.exe, which is excluded)
+level: high

@@ -1,0 +1,29 @@
+title: UAC Disabled via EnableLUA Registry Value
+id: aa55d211-fe73-51ff-b19e-a183b805f126
+name: uac_disabled_enablelua
+status: experimental
+description: Detects EnableLUA being set to 0, which turns off User Account Control.
+references:
+- https://attack.mitre.org/techniques/T1548/002/
+- https://attack.mitre.org/techniques/T1112/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Defense Evasion/DE_UAC_Disabled_Sysmon_12_13.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.defense-impairment
+- attack.t1548.002
+- attack.t1112
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID:
+    - 12
+    - 13
+    TargetObject|endswith: \policies\system\EnableLUA
+    Details|contains: '0x00000000'
+  condition: selection
+falsepositives:
+- Troubleshooting by administrators; legacy-app compatibility GPOs
+level: high

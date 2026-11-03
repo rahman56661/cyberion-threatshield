@@ -1,0 +1,30 @@
+title: RDP Logon from Loopback Address (Tunnelled RDP)
+id: a2e136d7-c4bd-5fa8-ad69-4e59be68e86e
+name: rdp_loopback_tunnel
+status: experimental
+description: Detects interactive RDP logons (type 10) whose source IP is loopback, indicating RDP traffic tunnelled through a local port forward.
+references:
+- https://attack.mitre.org/techniques/T1572/
+- https://attack.mitre.org/techniques/T1021/001/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Command and Control/DE_RDP_Tunnel_5156.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Command and Control/DE_RDP_Tunneling_4624.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.command-and-control
+- attack.t1572
+- attack.t1021.001
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4624
+    LogonType: 10
+    IpAddress:
+    - 127.0.0.1
+    - ::1
+  condition: selection
+falsepositives:
+- Local RDP loopback testing by administrators
+level: high

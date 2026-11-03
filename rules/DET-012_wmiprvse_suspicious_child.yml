@@ -1,0 +1,32 @@
+title: WMI Provider Host Spawning Command Interpreter or LOLBin
+id: f88711fd-60bc-553c-b0ab-40e61524d3f8
+name: wmiprvse_suspicious_child
+status: experimental
+description: Detects WmiPrvSE.exe spawning cmd.exe, powershell.exe or rundll32.exe, characteristic of remote WMI execution (wmic /node, Invoke-WmiMethod).
+references:
+- https://attack.mitre.org/techniques/T1047/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/sysmon_10_1_memdump_comsvcs_minidump.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_wmiexec_impacket_sysmon_whoami.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/smbmap_upload_exec_sysmon.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.execution
+- attack.t1047
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 1
+    ParentImage|endswith: \WmiPrvSE.exe
+    Image|endswith:
+    - \cmd.exe
+    - \powershell.exe
+    - \rundll32.exe
+    - \mshta.exe
+  condition: selection
+falsepositives:
+- Management tools (SCCM, monitoring agents) using WMI to run scripts
+level: medium

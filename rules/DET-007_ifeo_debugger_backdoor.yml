@@ -1,0 +1,32 @@
+title: Image File Execution Options Debugger Set (Accessibility Backdoor)
+id: df688470-2b8b-5209-8c70-f9081168a387
+name: ifeo_debugger_backdoor
+status: experimental
+description: Detects a Debugger value written under Image File Execution Options, via registry events or reg.exe, used to hijack osk.exe/sethc.exe/utilman.exe or any binary for persistence and privilege escalation.
+references:
+- https://attack.mitre.org/techniques/T1546/008/
+- https://attack.mitre.org/techniques/T1546/012/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Persistence/persistence_SilentProcessExit_ImageHijack_sysmon_13_1.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.persistence
+- attack.t1546.008
+- attack.t1546.012
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection_value:
+    EventID: 13
+    TargetObject|contains: Image File Execution Options
+    TargetObject|endswith: \Debugger
+  selection_cli:
+    EventID: 1
+    CommandLine|contains: Image File Execution Options
+    Image|endswith: \reg.exe
+  condition: selection_value or selection_cli
+falsepositives:
+- Developers attaching debuggers (WinDbg/Visual Studio) via IFEO on workstations
+level: high

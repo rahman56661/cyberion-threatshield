@@ -1,0 +1,33 @@
+title: Remote Service Control Manager Access via SMB (svcctl)
+id: 2b5401d5-e45b-557a-9b97-46fdb0c5394b
+name: remote_svcctl_access
+status: experimental
+description: Detects SMB access to the svcctl named pipe on IPC$ (Event ID 5145), used by PsExec/RemCom/sc.exe to create remote services.
+references:
+- https://attack.mitre.org/techniques/T1021/002/
+- https://attack.mitre.org/techniques/T1569/002/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_REMCOM_5145_TargetHost.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_Remote_Service01_5145_svcctl.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_renamed_psexecsvc_5145.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.lateral-movement
+- attack.t1021.002
+- attack.t1569.002
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 5145
+    ShareName|endswith: \IPC$
+    RelativeTargetName: svcctl
+  filter_local:
+    IpAddress:
+    - ::1
+    - 127.0.0.1
+  condition: selection and not filter_local
+falsepositives:
+- Remote administration by IT using sc.exe or management consoles
+level: medium

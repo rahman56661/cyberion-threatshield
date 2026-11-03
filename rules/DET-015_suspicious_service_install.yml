@@ -1,0 +1,30 @@
+title: Service Installed with Command Interpreter Binary Path
+id: dcae654e-4a9e-5cc5-91cd-cc302ce79b2b
+name: suspicious_service_install
+status: experimental
+description: Detects Service Control Manager Event ID 7045 where ImagePath is cmd.exe, PowerShell, mshta, rundll32 or %COMSPEC%.
+references:
+- https://attack.mitre.org/techniques/T1543/003/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_Remote_Service02_7045.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/System_7045_namedpipe_privesc.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.persistence
+- attack.t1543.003
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    EventID: 7045
+    ImagePath|contains:
+    - cmd.exe
+    - powershell
+    - '%COMSPEC%'
+    - mshta
+    - rundll32
+  condition: selection
+falsepositives:
+- Admin scripts that register services wrapping cmd (rare)
+level: high

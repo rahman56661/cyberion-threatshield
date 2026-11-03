@@ -1,0 +1,31 @@
+title: DCSync Replication Rights Used by Non-Machine Account
+id: 14bdf856-5e27-5e2f-83bb-9bfb3c0d5058
+name: dcsync_non_machine_account
+status: experimental
+description: Detects directory-replication GUIDs requested with Control Access (0x100) by a non-computer account (Event ID 4662), indicating DCSync via Mimikatz or Impacket.
+references:
+- https://attack.mitre.org/techniques/T1003/006/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_DCSync_4662.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.credential-access
+- attack.t1003.006
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4662
+    AccessMask: '0x00000100'
+    Properties|contains:
+    - 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2
+    - 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2
+    - 89e95b76-444d-4c62-991a-0facbeda640c
+  filter_machine:
+    SubjectUserName|endswith: $
+  condition: selection and not filter_machine
+falsepositives:
+- Azure AD Connect / MSOL service accounts that legitimately replicate
+- Backup or migration tooling with replication rights
+level: critical

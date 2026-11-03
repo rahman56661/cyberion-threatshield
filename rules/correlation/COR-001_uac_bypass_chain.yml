@@ -1,0 +1,23 @@
+title: 'UAC Bypass Chain: Registry Hijack Followed by Elevated Interpreter'
+id: 60e74dab-7bab-5617-acdd-1dbf2069bc8e
+name: uac_bypass_chain
+status: experimental
+description: Correlates a UAC-bypass registry handler hijack with an auto-elevating binary spawning an interpreter on the same host within 5 minutes. Combining both stages gives near-certain confidence compared with either rule alone.
+references:
+- https://github.com/SigmaHQ/sigma-specification/blob/main/specification/sigma-correlation-rules-specification.md
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.privilege-escalation
+- attack.t1548.002
+correlation:
+  type: temporal_ordered
+  rules:
+  - uac_bypass_registry_hijack
+  - autoelevate_binary_spawns_shell
+  group-by:
+  - Computer
+  timespan: 5m
+falsepositives:
+- Software that edits shell-handler keys and launches an elevated binary immediately (very rare)
+level: critical

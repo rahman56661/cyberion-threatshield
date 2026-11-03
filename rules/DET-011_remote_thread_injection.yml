@@ -1,0 +1,32 @@
+title: Remote Thread Created in Commonly Injected Process
+id: 69e4f62f-5db8-592d-ab64-ac942a1c325a
+name: remote_thread_injection
+status: experimental
+description: Detects CreateRemoteThread into notepad.exe, explorer.exe, lsass.exe or KeePass.exe, typical of Meterpreter/PowerShell reflective injection and credential theft tooling.
+references:
+- https://attack.mitre.org/techniques/T1055/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/Malware/sideloading_uacbypass_rundll32_injection_c2.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_keefarce_keepass_credump.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_keepass_KeeThief_Get-KeePassDatabaseKey.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.stealth
+- attack.t1055
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 8
+    TargetImage|endswith:
+    - \notepad.exe
+    - \explorer.exe
+    - \lsass.exe
+    - \KeePass.exe
+  condition: selection
+falsepositives:
+- Accessibility and screen-reader software
+- Some AV/EDR and game anti-cheat products
+level: high

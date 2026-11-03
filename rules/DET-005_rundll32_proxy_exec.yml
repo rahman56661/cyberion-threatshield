@@ -1,0 +1,37 @@
+title: Rundll32 Proxy Execution of Script or URL Handlers
+id: 0c163b21-d110-5530-ab9f-abfeffb9cb90
+name: rundll32_proxy_exec
+status: experimental
+description: Detects rundll32.exe used to run JavaScript, open URLs or invoke abusable exports (FileProtocolHandler, OpenURL, RegisterOCX, RouteTheCall, LaunchApplication, RunHTMLApplication).
+references:
+- https://attack.mitre.org/techniques/T1218/011/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/Sysmon_Exec_CompiledHTML.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.stealth
+- attack.t1218.011
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection_bin:
+    EventID: 1
+    CommandLine|contains: rundll32
+  selection_args:
+    CommandLine|contains:
+    - 'javascript:'
+    - FileProtocolHandler
+    - RegisterOCX
+    - RouteTheCall
+    - LaunchApplication
+    - RunHTMLApplication
+    - OpenURL
+  condition: selection_bin and selection_args
+falsepositives:
+- Software installers calling advpack/setupapi exports
+- Help/URL handlers invoking url.dll from legacy apps
+level: medium

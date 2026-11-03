@@ -1,0 +1,32 @@
+title: BITSAdmin Used for Transfer or Persistence
+id: 7a72880c-6458-5a60-ac08-be7388b42430
+name: bitsadmin_abuse
+status: experimental
+description: Detects bitsadmin.exe creating transfer jobs, adding files or setting a notify command line, which can download payloads or persist code execution.
+references:
+- https://attack.mitre.org/techniques/T1197/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.persistence
+- attack.t1197
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection_bin:
+    EventID: 1
+    CommandLine|contains: bitsadmin
+  selection_args:
+    CommandLine|contains:
+    - /transfer
+    - /addfile
+    - /setnotifycmdline
+    - /create
+  condition: selection_bin and selection_args
+falsepositives:
+- IT scripts using BITS to distribute software
+- Legacy deployment tools
+level: medium

@@ -1,0 +1,62 @@
+[
+ {
+  "cid": "COR-001",
+  "name": "uac_bypass_chain",
+  "title": "UAC Bypass Chain: Registry Hijack Followed by Elevated Interpreter",
+  "type": "temporal_ordered",
+  "rules": [
+   "uac_bypass_registry_hijack",
+   "autoelevate_binary_spawns_shell"
+  ],
+  "span": "5m",
+  "level": "critical",
+  "fps": [
+   "Software that edits shell-handler keys and launches an elevated binary immediately (very rare)"
+  ]
+ },
+ {
+  "cid": "COR-002",
+  "name": "injection_burst",
+  "title": "Process Injection Burst: Repeated Remote Thread Creation from One Source",
+  "type": "event_count",
+  "rules": [
+   "remote_thread_injection"
+  ],
+  "span": "1m",
+  "level": "high",
+  "fps": [
+   "Security products performing bulk instrumentation"
+  ]
+ },
+ {
+  "cid": "COR-003",
+  "name": "lsass_access_with_injection",
+  "title": "Credential Dumping via Injection: LSASS Access Plus Remote Thread",
+  "type": "temporal",
+  "rules": [
+   "lsass_suspicious_access",
+   "remote_thread_injection"
+  ],
+  "span": "1m",
+  "level": "critical",
+  "fps": [
+   "Red-team exercises",
+   "EDR self-test tooling"
+  ]
+ },
+ {
+  "cid": "COR-004",
+  "name": "bits_download_then_scriptlet",
+  "title": "Download via BITSAdmin Followed by Scriptlet Execution",
+  "type": "temporal_ordered",
+  "rules": [
+   "bitsadmin_abuse",
+   "regsvr32_scriptlet_exec"
+  ],
+  "span": "10m",
+  "level": "high",
+  "fps": [
+   "Installer frameworks combining BITS delivery and COM registration"
+  ]
+ }
+]
