@@ -25,6 +25,12 @@
    "privilege-escalation"
   ]
  },
+ "T1087.002": {
+  "name": "Domain Account",
+  "tactics": [
+   "discovery"
+  ]
+ },
  "T1543.003": {
   "name": "Windows Service",
   "tactics": [
@@ -32,11 +38,23 @@
    "privilege-escalation"
   ]
  },
+ "T1135": {
+  "name": "Network Share Discovery",
+  "tactics": [
+   "discovery"
+  ]
+ },
  "T1055": {
   "name": "Process Injection",
   "tactics": [
    "stealth",
    "privilege-escalation"
+  ]
+ },
+ "T1070.006": {
+  "name": "Timestomp",
+  "tactics": [
+   "stealth"
   ]
  },
  "T1021.002": {
@@ -49,6 +67,12 @@
   "name": "Protocol Tunneling",
   "tactics": [
    "command-and-control"
+  ]
+ },
+ "T1207": {
+  "name": "Rogue Domain Controller",
+  "tactics": [
+   "defense-impairment"
   ]
  },
  "T1112": {
@@ -84,10 +108,29 @@
    "defense-impairment"
   ]
  },
- "T1070": {
-  "name": "Indicator Removal",
+ "T1218.005": {
+  "name": "Mshta",
   "tactics": [
    "stealth"
+  ]
+ },
+ "T1564.002": {
+  "name": "Hidden Users",
+  "tactics": [
+   "stealth"
+  ]
+ },
+ "T1546.003": {
+  "name": "Windows Management Instrumentation Event Subscription",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
+  ]
+ },
+ "T1210": {
+  "name": "Exploitation of Remote Services",
+  "tactics": [
+   "lateral-movement"
   ]
  },
  "T1547.001": {
@@ -97,10 +140,23 @@
    "privilege-escalation"
   ]
  },
+ "T1187": {
+  "name": "Forced Authentication",
+  "tactics": [
+   "credential-access"
+  ]
+ },
  "T1218.010": {
   "name": "Regsvr32",
   "tactics": [
    "stealth"
+  ]
+ },
+ "T1546.015": {
+  "name": "Component Object Model Hijacking",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
   ]
  },
  "T1197": {
@@ -109,6 +165,13 @@
    "stealth",
    "persistence",
    "execution"
+  ]
+ },
+ "T1134": {
+  "name": "Access Token Manipulation",
+  "tactics": [
+   "stealth",
+   "privilege-escalation"
   ]
  },
  "T1550.002": {

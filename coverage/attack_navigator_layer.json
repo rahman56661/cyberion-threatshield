@@ -1,0 +1,259 @@
+{
+ "name": "Cyberion ThreatShield - Detection Coverage",
+ "versions": {
+  "attack": "20",
+  "navigator": "5.1.0",
+  "layer": "4.5"
+ },
+ "domain": "enterprise-attack",
+ "description": "Coverage of 22 Sigma + 4 correlation rules validated on EVTX-ATTACK-SAMPLES. Green=covered, yellow=partial, red=not covered.",
+ "gradient": {
+  "colors": [
+   "#ff6666",
+   "#ffe766",
+   "#8ec843"
+  ],
+  "minValue": 1,
+  "maxValue": 3
+ },
+ "legendItems": [
+  {
+   "label": "Covered",
+   "color": "#8ec843"
+  },
+  {
+   "label": "Partially Covered",
+   "color": "#ffe766"
+  },
+  {
+   "label": "Not Covered",
+   "color": "#ff6666"
+  }
+ ],
+ "techniques": [
+  {
+   "techniqueID": "T1685.005",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-001, DET-002. Security 1102 and System 104. Benign lab-prep clears seen in 24 samples (see tuning).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1003.001",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-003, DET-019, COR-003. Sysmon EID10 access rights, PowerShell 4104, and LSASS+injection correlation.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1003.006",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-013. Non-machine account with replication GUIDs and Control Access.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.010",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-004, COR-004. Includes renamed regsvr32 via /i:http (added after validation miss).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.011",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-005. Script/URL handler abuse of rundll32; also catches the mshtml RunHTMLApplication variant.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1548.002",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-009, DET-010, DET-020, COR-001. Registry hijack plus elevated child, chained by COR-001.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1055",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-011, COR-002. Remote-thread creation into commonly injected processes; burst correlation.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1543.003",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-015. Service with interpreter binary path (7045).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1053.005",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-016. 4698 outside Microsoft task path; updater noise expected.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1572",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-018. Loopback-sourced RDP logon (type 10).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1546.012",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-007. IFEO Debugger value write.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1546.015",
+   "score": 3,
+   "color": "#8ec843",
+   "comment": "Covered. Rules: DET-021. Rule created from Hunt 01 findings.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1197",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-006, COR-004. bitsadmin CLI only. COM/PowerShell BITS job creation (Bits-Client log) not covered.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1546.008",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-007. IFEO debugger path only; the osk.exe-spawns-shell outcome in the sample is not detected.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1547.001",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-008. Path heuristic; Run keys pointing at trusted-looking paths are missed.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1112",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-010. Only the EnableLUA value is covered; other tamper keys are not.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1047",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-012. Sysmon-based. Security 4688 sample LM_WMI_4624_4688_TargetHost has no parent field so was missed.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.002",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-014. svcctl pipe access only; C$/ADMIN$ file copy (5145) not covered.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1569.002",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-014. Detected at SCM RPC stage, not at service execution.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1550.002",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-017. seclogo logon type 9 only; NTLM type-3 pass-the-hash not covered.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.001",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-018. Only tunnelled RDP; ordinary lateral RDP not covered.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1105",
+   "score": 2,
+   "color": "#ffe766",
+   "comment": "Partially Covered. Rules: DET-022, COR-004. LOLBin network egress only; browser/curl/PowerShell downloads not covered.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.005",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. Direct mshta.exe execution has no rule (only the rundll32/mshtml variant is covered).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1564.002",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. Hidden ($-suffixed) account registry change.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1207",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. DCShadow rogue DC registration (4742).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1134",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. Token duplication / impersonation.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1187",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. PetiPotam forced authentication via EFSRPC.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1210",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. Zerologon exploitation (NetLogon 5805).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.002",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. BloodHound/SharpHound domain account enumeration.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1546.003",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. WMI event subscription persistence (Sysmon 19/20/21).",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1070.006",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. Timestomp (Sysmon EID 2) - no rule.",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1135",
+   "score": 1,
+   "color": "#ff6666",
+   "comment": "Not Covered. Rules: none. Network share enumeration.",
+   "enabled": true
+  }
+ ]
+}

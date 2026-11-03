@@ -1,0 +1,492 @@
+[
+ {
+  "technique": "T1685.005",
+  "name": "Clear Windows Event Logs",
+  "tactics": [
+   "defense-impairment"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-001",
+   "DET-002"
+  ],
+  "samples": [
+   "DE_1102_security_log_cleared",
+   "DE_104_system_log_cleared"
+  ],
+  "note": "Security 1102 and System 104. Benign lab-prep clears seen in 24 samples (see tuning)."
+ },
+ {
+  "technique": "T1003.001",
+  "name": "LSASS Memory",
+  "tactics": [
+   "credential-access"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-003",
+   "DET-019",
+   "COR-003"
+  ],
+  "samples": [
+   "CA_sysmon_hashdump_cmd_meterpreter",
+   "Powershell_4104_MiniDumpWriteDump_Lsass"
+  ],
+  "note": "Sysmon EID10 access rights, PowerShell 4104, and LSASS+injection correlation."
+ },
+ {
+  "technique": "T1003.006",
+  "name": "DCSync",
+  "tactics": [
+   "credential-access"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-013"
+  ],
+  "samples": [
+   "CA_DCSync_4662"
+  ],
+  "note": "Non-machine account with replication GUIDs and Control Access."
+ },
+ {
+  "technique": "T1218.010",
+  "name": "Regsvr32",
+  "tactics": [
+   "stealth"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-004",
+   "COR-004"
+  ],
+  "samples": [
+   "exec_sysmon_lobin_regsvr32_sct",
+   "exec_sysmon_1_lolbin_renamed_regsvr32_scrobj"
+  ],
+  "note": "Includes renamed regsvr32 via /i:http (added after validation miss)."
+ },
+ {
+  "technique": "T1218.011",
+  "name": "Rundll32",
+  "tactics": [
+   "stealth"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-005"
+  ],
+  "samples": [
+   "exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler"
+  ],
+  "note": "Script/URL handler abuse of rundll32; also catches the mshtml RunHTMLApplication variant."
+ },
+ {
+  "technique": "T1548.002",
+  "name": "Bypass User Account Control",
+  "tactics": [
+   "privilege-escalation"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-009",
+   "DET-010",
+   "DET-020",
+   "COR-001"
+  ],
+  "samples": [
+   "Sysmon_13_1_UACBypass_SDCLTBypass",
+   "Sysmon_13_1_UAC_Bypass_EventVwrBypass"
+  ],
+  "note": "Registry hijack plus elevated child, chained by COR-001."
+ },
+ {
+  "technique": "T1055",
+  "name": "Process Injection",
+  "tactics": [
+   "stealth",
+   "privilege-escalation"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-011",
+   "COR-002"
+  ],
+  "samples": [
+   "de_unmanagedpowershell_psinject_sysmon_7_8_10",
+   "Sysmon_meterpreter_ReflectivePEInjection_to_notepad_"
+  ],
+  "note": "Remote-thread creation into commonly injected processes; burst correlation."
+ },
+ {
+  "technique": "T1543.003",
+  "name": "Windows Service",
+  "tactics": [
+   "persistence",
+   "privilege-escalation"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-015"
+  ],
+  "samples": [
+   "LM_Remote_Service02_7045"
+  ],
+  "note": "Service with interpreter binary path (7045)."
+ },
+ {
+  "technique": "T1053.005",
+  "name": "Scheduled Task",
+  "tactics": [
+   "execution",
+   "persistence",
+   "privilege-escalation"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-016"
+  ],
+  "samples": [
+   "LM_ScheduledTask_ATSVC_target_host"
+  ],
+  "note": "4698 outside Microsoft task path; updater noise expected."
+ },
+ {
+  "technique": "T1572",
+  "name": "Protocol Tunneling",
+  "tactics": [
+   "command-and-control"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-018"
+  ],
+  "samples": [
+   "DE_RDP_Tunnel_5156",
+   "DE_RDP_Tunneling_4624"
+  ],
+  "note": "Loopback-sourced RDP logon (type 10)."
+ },
+ {
+  "technique": "T1546.012",
+  "name": "Image File Execution Options Injection",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-007"
+  ],
+  "samples": [
+   "persistence_SilentProcessExit_ImageHijack_sysmon_13_1"
+  ],
+  "note": "IFEO Debugger value write."
+ },
+ {
+  "technique": "T1546.015",
+  "name": "Component Object Model Hijacking",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
+  ],
+  "status": "Covered",
+  "rules": [
+   "DET-021"
+  ],
+  "samples": [
+   "persist_firefox_comhijack_sysmon_11_13_7_1",
+   "persist_turla_outlook_backdoor_comhijack"
+  ],
+  "note": "Rule created from Hunt 01 findings."
+ },
+ {
+  "technique": "T1197",
+  "name": "BITS Jobs",
+  "tactics": [
+   "stealth",
+   "persistence",
+   "execution"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-006",
+   "COR-004"
+  ],
+  "samples": [
+   "PanacheSysmon_vs_AtomicRedTeam01"
+  ],
+  "note": "bitsadmin CLI only. COM/PowerShell BITS job creation (Bits-Client log) not covered."
+ },
+ {
+  "technique": "T1546.008",
+  "name": "Accessibility Features",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-007"
+  ],
+  "samples": [
+   "persistence_accessibility_features_osk_sysmon1"
+  ],
+  "note": "IFEO debugger path only; the osk.exe-spawns-shell outcome in the sample is not detected."
+ },
+ {
+  "technique": "T1547.001",
+  "name": "Registry Run Keys / Startup Folder",
+  "tactics": [
+   "persistence",
+   "privilege-escalation"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-008"
+  ],
+  "samples": [
+   "evasion_persis_hidden_run_keyvalue_sysmon_13"
+  ],
+  "note": "Path heuristic; Run keys pointing at trusted-looking paths are missed."
+ },
+ {
+  "technique": "T1112",
+  "name": "Modify Registry",
+  "tactics": [
+   "defense-impairment",
+   "persistence"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-010"
+  ],
+  "samples": [
+   "DE_UAC_Disabled_Sysmon_12_13"
+  ],
+  "note": "Only the EnableLUA value is covered; other tamper keys are not."
+ },
+ {
+  "technique": "T1047",
+  "name": "Windows Management Instrumentation",
+  "tactics": [
+   "execution"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-012"
+  ],
+  "samples": [
+   "LM_wmiexec_impacket_sysmon_whoami"
+  ],
+  "note": "Sysmon-based. Security 4688 sample LM_WMI_4624_4688_TargetHost has no parent field so was missed."
+ },
+ {
+  "technique": "T1021.002",
+  "name": "SMB/Windows Admin Shares",
+  "tactics": [
+   "lateral-movement"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-014"
+  ],
+  "samples": [
+   "LM_REMCOM_5145_TargetHost"
+  ],
+  "note": "svcctl pipe access only; C$/ADMIN$ file copy (5145) not covered."
+ },
+ {
+  "technique": "T1569.002",
+  "name": "Service Execution",
+  "tactics": [
+   "execution"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-014"
+  ],
+  "samples": [
+   "LM_Remote_Service01_5145_svcctl"
+  ],
+  "note": "Detected at SCM RPC stage, not at service execution."
+ },
+ {
+  "technique": "T1550.002",
+  "name": "Pass the Hash",
+  "tactics": [
+   "lateral-movement"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-017"
+  ],
+  "samples": [
+   "tutto_malseclogon"
+  ],
+  "note": "seclogo logon type 9 only; NTLM type-3 pass-the-hash not covered."
+ },
+ {
+  "technique": "T1021.001",
+  "name": "Remote Desktop Protocol",
+  "tactics": [
+   "lateral-movement"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-018"
+  ],
+  "samples": [
+   "DE_RDP_Tunneling_4624"
+  ],
+  "note": "Only tunnelled RDP; ordinary lateral RDP not covered."
+ },
+ {
+  "technique": "T1105",
+  "name": "Ingress Tool Transfer",
+  "tactics": [
+   "command-and-control"
+  ],
+  "status": "Partially Covered",
+  "rules": [
+   "DET-022",
+   "COR-004"
+  ],
+  "samples": [
+   "panache_sysmon_vs_EDRTestingScript"
+  ],
+  "note": "LOLBin network egress only; browser/curl/PowerShell downloads not covered."
+ },
+ {
+  "technique": "T1218.005",
+  "name": "Mshta",
+  "tactics": [
+   "stealth"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "LM_DCOM_MSHTA_LethalHTA_Sysmon_3_1"
+  ],
+  "note": "Direct mshta.exe execution has no rule (only the rundll32/mshtml variant is covered)."
+ },
+ {
+  "technique": "T1564.002",
+  "name": "Hidden Users",
+  "tactics": [
+   "stealth"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "persistence_hidden_local_account_sysmon"
+  ],
+  "note": "Hidden ($-suffixed) account registry change."
+ },
+ {
+  "technique": "T1207",
+  "name": "Rogue Domain Controller",
+  "tactics": [
+   "defense-impairment"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "persistence_security_dcshadow_4742"
+  ],
+  "note": "DCShadow rogue DC registration (4742)."
+ },
+ {
+  "technique": "T1134",
+  "name": "Access Token Manipulation",
+  "tactics": [
+   "stealth",
+   "privilege-escalation"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "Invoke_TokenDuplication_UAC_Bypass4624"
+  ],
+  "note": "Token duplication / impersonation."
+ },
+ {
+  "technique": "T1187",
+  "name": "Forced Authentication",
+  "tactics": [
+   "credential-access"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "CA_PetiPotam_etw_rpc_efsr_5_6"
+  ],
+  "note": "PetiPotam forced authentication via EFSRPC."
+ },
+ {
+  "technique": "T1210",
+  "name": "Exploitation of Remote Services",
+  "tactics": [
+   "lateral-movement"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "Zerologon_CVE-2020-1472_DFIR_System_NetLogon_Error_EventID_5805"
+  ],
+  "note": "Zerologon exploitation (NetLogon 5805)."
+ },
+ {
+  "technique": "T1087.002",
+  "name": "Domain Account",
+  "tactics": [
+   "discovery"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "discovery_bloodhound"
+  ],
+  "note": "BloodHound/SharpHound domain account enumeration."
+ },
+ {
+  "technique": "T1546.003",
+  "name": "Windows Management Instrumentation Event Subscription",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "sysmon_20_21_1_CommandLineEventConsumer"
+  ],
+  "note": "WMI event subscription persistence (Sysmon 19/20/21)."
+ },
+ {
+  "technique": "T1070.006",
+  "name": "Timestomp",
+  "tactics": [
+   "stealth"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "DE_timestomp_and_dll_sideloading_and_RunPersist"
+  ],
+  "note": "Timestomp (Sysmon EID 2) - no rule."
+ },
+ {
+  "technique": "T1135",
+  "name": "Network Share Discovery",
+  "tactics": [
+   "discovery"
+  ],
+  "status": "Not Covered",
+  "rules": [],
+  "samples": [
+   "discovery_enum_shares_target_sysmon_3_18"
+  ],
+  "note": "Network share enumeration."
+ }
+]

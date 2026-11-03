@@ -1,0 +1,300 @@
+{
+ "ips": [
+  {
+   "DestinationIp": "104.20.208.21",
+   "events": 1,
+   "procs": [
+    "regsvr32.exe"
+   ],
+   "samples": [
+    "exec_sysmon_lobin_regsvr32_sct.evtx"
+   ],
+   "port": [
+    "80"
+   ]
+  },
+  {
+   "DestinationIp": "105.73.6.105",
+   "events": 2,
+   "procs": [
+    "WMIC.exe",
+    "mshta.exe"
+   ],
+   "samples": [
+    "exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+    "exec_wmic_xsl_internet_sysmon_3_1_11.evtx"
+   ],
+   "port": [
+    "80"
+   ]
+  },
+  {
+   "DestinationIp": "105.73.6.112",
+   "events": 1,
+   "procs": [
+    "mshta.exe"
+   ],
+   "samples": [
+    "exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx"
+   ],
+   "port": [
+    "80"
+   ]
+  },
+  {
+   "DestinationIp": "108.179.232.58",
+   "events": 1,
+   "procs": [
+    "mshta.exe"
+   ],
+   "samples": [
+    "exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx"
+   ],
+   "port": [
+    "443"
+   ]
+  },
+  {
+   "DestinationIp": "151.101.0.133",
+   "events": 10,
+   "procs": [
+    "WMIC.exe",
+    "certutil.exe",
+    "mshta.exe",
+    "powershell.exe",
+    "regsvr32.exe",
+    "rundll32.exe"
+   ],
+   "samples": [
+    "PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "panache_sysmon_vs_EDRTestingScript.evtx"
+   ],
+   "port": [
+    "443"
+   ]
+  },
+  {
+   "DestinationIp": "151.101.128.133",
+   "events": 1,
+   "procs": [
+    "regsvr32.exe"
+   ],
+   "samples": [
+    "sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx"
+   ],
+   "port": [
+    "443"
+   ]
+  },
+  {
+   "DestinationIp": "151.101.36.133",
+   "events": 1,
+   "procs": [
+    "powershell.exe"
+   ],
+   "samples": [
+    "sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx"
+   ],
+   "port": [
+    "443"
+   ]
+  },
+  {
+   "DestinationIp": "172.217.17.132",
+   "events": 1,
+   "procs": [
+    "powershell.exe"
+   ],
+   "samples": [
+    "PanacheSysmon_vs_AtomicRedTeam01.evtx"
+   ],
+   "port": [
+    "80"
+   ]
+  },
+  {
+   "DestinationIp": "185.199.111.153",
+   "events": 1,
+   "procs": [
+    "mmc.exe"
+   ],
+   "samples": [
+    "Sysmon_UACME_38.evtx"
+   ],
+   "port": [
+    "443"
+   ]
+  },
+  {
+   "DestinationIp": "224.0.0.252",
+   "events": 1,
+   "procs": [
+    "svchost.exe"
+   ],
+   "samples": [
+    "DE_sysmon-3-rdp-tun.evtx"
+   ],
+   "port": [
+    "5355"
+   ]
+  },
+  {
+   "DestinationIp": "45.76.12.27",
+   "events": 1,
+   "procs": [
+    "WMIC.exe"
+   ],
+   "samples": [
+    "exec_wmic_xsl_internet_sysmon_3_1_11.evtx"
+   ],
+   "port": [
+    "443"
+   ]
+  },
+  {
+   "DestinationIp": "93.184.220.29",
+   "events": 1,
+   "procs": [
+    "mshta.exe"
+   ],
+   "samples": [
+    "panache_sysmon_vs_EDRTestingScript.evtx"
+   ],
+   "port": [
+    "80"
+   ]
+  }
+ ],
+ "urls": [
+  {
+   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/CradleTest.txt",
+   "count": 8
+  },
+  {
+   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md",
+   "count": 4
+  },
+  {
+   "url": "https://hotelesms.com/talsk.txt",
+   "count": 3
+  },
+  {
+   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1216/payloads/T1216.sct",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/wmicscript.xsl",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1117/RegSvr32.sct",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Mshta_calc.sct",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Cmstp_calc.sct",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Wmic_calc.xsl",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/test",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Cmstp.inf",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/test.sct",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/3gstudent/SCTPersistence/master/calc.sct",
+   "count": 2
+  },
+  {
+   "url": "http://pastebin.com/raw/H4A4iDTA",
+   "count": 2
+  },
+  {
+   "url": "https://a.uguu.se/Hv0bgvgHGNeH_Bin.7z",
+   "count": 2
+  },
+  {
+   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslxmlfile.xml",
+   "count": 1
+  },
+  {
+   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslscript.xsl",
+   "count": 1
+  },
+  {
+   "url": "http://pastebin.com/raw/y2CjnRtH",
+   "count": 1
+  },
+  {
+   "url": "https://hotelesms.com/Injection.txt",
+   "count": 1
+  },
+  {
+   "url": "https://a.uguu.se/x50IGVBRfr55_test.xsl",
+   "count": 1
+  }
+ ],
+ "hashes": [
+  {
+   "sha256": "0bf5ee2bb8beb0814f17f1d76249565937ea6263242193848fac6c6eb69f6049",
+   "image": "MalSeclogon.exe",
+   "path": "\\\\VBoxSvr\\Users\\bouss\\Downloads\\MalSeclogon-master\\x64\\Debug\\MalSeclogon.exe",
+   "sample": "tutto_malseclogon.evtx"
+  },
+  {
+   "sha256": "2969e70b74a12e3b0441d0bda498322464a8614421b00321e889756d60ab4200",
+   "image": "AndrewSpecial.exe",
+   "path": "C:\\Users\\administrator\\Desktop\\AndrewSpecial.exe",
+   "sample": "sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx"
+  },
+  {
+   "sha256": "38879fe4aa25044db241b093e6a1cf904ba9f4e999041c0cc039e2d5f7aba044",
+   "image": "Outflank-Dumpert.exe",
+   "path": "C:\\Users\\administrator\\Desktop\\x64\\Outflank-Dumpert.exe",
+   "sample": "sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx"
+  },
+  {
+   "sha256": "68612b1c72b8aa498530aceb929ed44f1837b8bc52d1269e30a834931434fc41",
+   "image": "PPLdump.exe",
+   "path": "C:\\Users\\IEUser\\Desktop\\PPLdump.exe",
+   "sample": "ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx"
+  },
+  {
+   "sha256": "70908f9bbc59198febe0d1ca0e34a9e79c68f5053a39a0ba0c6f6cec9ed1a875",
+   "image": "ppldump.exe",
+   "path": "C:\\Users\\Public\\BYOV\\ZAM64\\ppldump.exe",
+   "sample": "DE_BYOV_Zam64_CA_Memdump_sysmon_7_10.evtx"
+  },
+  {
+   "sha256": "890c1734ed1ef6b2422a9b21d6205cf91e014add8a7f41aa5a294fcf60631a7b",
+   "image": "jabber.exe",
+   "path": "C:\\ProgramData\\jabber.exe",
+   "sample": "exec_sysmon_1_lolbin_renamed_regsvr32_scrobj.evtx"
+  },
+  {
+   "sha256": "e624863387832c7bbe47d17a346aab6a76638a2c9b5368fd7308a28775f1478a",
+   "image": "com-hijack.exe",
+   "path": "C:\\Users\\IEUser\\Downloads\\com-hijack.exe",
+   "sample": "persist_firefox_comhijack_sysmon_11_13_7_1.evtx"
+  },
+  {
+   "sha256": "f0d5c8e6df82a7b026f4f0412f8ede11a053185675d965215b1ffbbc52326516",
+   "image": "KeeFarce.exe",
+   "path": "C:\\Users\\Public\\KeeFarce.exe",
+   "sample": "CA_keefarce_keepass_credump.evtx"
+  }
+ ]
+}
