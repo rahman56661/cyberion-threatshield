@@ -1,0 +1,25 @@
+_file,TimeCreated,Computer,EventID,SourceImage,TargetImage,GrantedAccess
+AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx,2019-07-19 15:11:16.487989+00:00,MSEDGEWIN10,10,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\system32\lsass.exe,0x00001010
+Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,10,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\system32\lsass.exe,0x001f1fff
+Credential Access/babyshark_mimikatz_powershell.evtx,2019-04-18 16:58:14.811880+00:00,IEWIN7,10,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\system32\lsass.exe,0x00001010
+Credential Access/babyshark_mimikatz_powershell.evtx,2019-04-18 17:01:35.720774+00:00,IEWIN7,10,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\system32\lsass.exe,0x00001010
+Credential Access/sysmon_10_11_lsass_memdump.evtx,2019-03-17 19:09:41.328867+00:00,PC04.example.corp,10,C:\Users\IEUser\Desktop\procdump.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_lsass_memdump.evtx,2019-03-17 19:10:03.991455+00:00,PC04.example.corp,10,C:\Windows\system32\taskmgr.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:35:37.329185+00:00,alice.insecurebank.local,10,C:\Users\administrator\Desktop\x64\Outflank-Dumpert.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:35:37.377197+00:00,alice.insecurebank.local,10,C:\Users\administrator\Desktop\x64\Outflank-Dumpert.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:35:50.259077+00:00,alice.insecurebank.local,10,C:\Windows\system32\rundll32.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:35:50.264109+00:00,alice.insecurebank.local,10,C:\Windows\system32\rundll32.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:35:50.729225+00:00,alice.insecurebank.local,10,C:\Windows\system32\rundll32.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:35:50.749237+00:00,alice.insecurebank.local,10,C:\Windows\system32\rundll32.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:36:51.681566+00:00,alice.insecurebank.local,10,C:\Users\administrator\Desktop\AndrewSpecial.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx,2019-06-21 07:36:51.682571+00:00,alice.insecurebank.local,10,C:\Users\administrator\Desktop\AndrewSpecial.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_10_lsass_mimikatz_sekurlsa_logonpasswords.evtx,2019-03-17 19:37:11.661928+00:00,PC04.example.corp,10,C:\Users\IEUser\Desktop\mimikatz_trunk\Win32\mimikatz.exe,C:\Windows\system32\lsass.exe,0x00001010
+Credential Access/sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx,2020-07-07 21:51:39.204636+00:00,LAPTOP-JU4M3I0E,10,C:\Users\Public\tools\SysinternalsSuite\procdump.exe,C:\windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx,2020-07-07 21:51:39.256632+00:00,LAPTOP-JU4M3I0E,10,C:\Users\Public\tools\SysinternalsSuite\procdump64.exe,C:\windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx,2020-07-07 21:51:39.262861+00:00,LAPTOP-JU4M3I0E,10,C:\Users\Public\tools\SysinternalsSuite\procdump64.exe,C:\windows\system32\lsass.exe,0x001fffff
+Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx,2019-05-02 14:50:17.955524+00:00,IEWIN7,10,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\system32\lsass.exe,0x0000143a
+Credential Access/tutto_malseclogon.evtx,2021-12-07 17:33:01.680326+00:00,MSEDGEWIN10,10,Z:\bouss\Downloads\MalSeclogon-master\x64\Debug\MalSeclogon.exe,C:\Windows\system32\lsass.exe,0x00001410
+Defense Evasion/DE_BYOV_Zam64_CA_Memdump_sysmon_7_10.evtx,2020-02-10 10:08:24.666489+00:00,MSEDGEWIN10,10,c:\Users\Public\BYOV\ZAM64\ppldump.exe,C:\Windows\system32\lsass.exe,0x001fffff
+Discovery/discovery_meterpreter_ps_cmd_process_listing_sysmon_10.evtx,2019-04-30 07:23:00.899261+00:00,IEWIN7,10,D:\m.exe,C:\Windows\system32\lsass.exe,0x00001410
+Persistence/sysmon_20_21_1_CommandLineEventConsumer.evtx,2019-05-11 17:58:54.762533+00:00,IEWIN7,10,c:\python27\python.exe,C:\Windows\system32\lsass.exe,0x00001410
+Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx,2019-05-11 18:10:42.637533+00:00,IEWIN7,10,c:\python27\python.exe,C:\Windows\system32\lsass.exe,0x00101ffb

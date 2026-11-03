@@ -1,0 +1,4 @@
+_file,TimeCreated,Computer,EventID,SubjectUserName,TaskName
+Execution/temp_scheduled_task_4698_4699.evtx,2019-03-19 00:02:04.319944+00:00,WIN-77LTAPHIQ1R.example.corp,4698,Administrator,\CYAlyNSS
+Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx,2019-03-19 00:02:04.319944+00:00,WIN-77LTAPHIQ1R.example.corp,4698,Administrator,\CYAlyNSS
+Privilege Escalation/PrivEsc_SeImpersonatePriv_enabled_back_for_upnp_localsvc_4698.evtx,2020-03-07 13:17:38.534994+00:00,MSEDGEWIN10,4698,LOCAL SERVICE,\FullPowersTask

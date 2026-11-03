@@ -1,0 +1,3 @@
+_file,TimeCreated,Computer,EventID,SubjectUserName
+Credential Access/Zerologon_CVE-2020-1472_DFIR_System_NetLogon_Error_EventID_5805.evtx,2020-09-15 19:28:31.453648+00:00,01566s-win16-ir.threebeesco.com,104,a-jbrown
+Defense Evasion/DE_104_system_log_cleared.evtx,2019-03-19 23:34:25.894341+00:00,PC01.example.corp,104,user01

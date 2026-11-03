@@ -1,0 +1,5 @@
+_file,TimeCreated,Computer,EventID,Image,ParentImage,CommandLine
+Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx,2019-05-09 02:08:00.446150+00:00,IEWIN7,1,C:\Windows\System32\cmd.exe,C:\Windows\System32\sdclt.exe,"""C:\Windows\System32\cmd.exe"" /c notepad.exe"
+Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx,2019-05-09 01:59:29.090897+00:00,IEWIN7,1,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\eventvwr.exe,"""C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"" "
+Privilege Escalation/Sysmon_UACME_33.evtx,2019-08-03 10:14:08.472101+00:00,MSEDGEWIN10,1,C:\Windows\System32\cmd.exe,C:\Windows\System32\fodhelper.exe,"""C:\Windows\system32\cmd.exe"" "
+Privilege Escalation/sysmon_1_13_UACBypass_AppPath_Control.evtx,2019-05-09 03:25:25.067945+00:00,IEWIN7,1,C:\Windows\System32\cmd.exe,C:\Windows\System32\sdclt.exe,"""C:\Windows\System32\cmd.exe""  /name Microsoft.BackupAndRestoreCenter"

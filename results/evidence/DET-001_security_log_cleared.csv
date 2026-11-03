@@ -1,0 +1,25 @@
+_file,TimeCreated,Computer,EventID,SubjectUserName
+Command and Control/DE_RDP_Tunnel_5156.evtx,2019-02-13 18:01:41.593830+00:00,PC01.example.corp,1102,admin01
+Credential Access/ACL_ForcePwd_SPNAdd_User_Computer_Accounts.evtx,2019-03-25 09:09:14.916618+00:00,DC1.insecurebank.local,1102,bob
+Credential Access/CA_chrome_firefox_opera_4663.evtx,2019-04-27 19:27:55.274059+00:00,IEWIN7,1102,IEUser
+Credential Access/Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx,2020-09-15 19:28:17.594374+00:00,01566s-win16-ir.threebeesco.com,1102,a-jbrown
+Credential Access/kerberos_pwd_spray_4771.evtx,2020-07-22 20:29:27.321770+00:00,01566s-win16-ir.threebeesco.com,1102,a-jbrown
+Credential Access/remote_pwd_reset_rpc_mimikatz_postzerologon_target_DC.evtx,2020-09-17 10:57:37.013214+00:00,01566s-win16-ir.threebeesco.com,1102,a-jbrown
+Credential Access/remote_sam_registry_access_via_backup_operator_priv.evtx,2022-02-16 10:37:07.251284+00:00,01566s-win16-ir.threebeesco.com,1102,jbrown
+Defense Evasion/DE_1102_security_log_cleared.evtx,2019-03-19 23:35:07.524200+00:00,PC01.example.corp,1102,user01
+Defense Evasion/DE_suspicious_remote_eventlog_svc_access_5145.evtx,2020-09-23 16:49:41.578691+00:00,01566s-win16-ir.threebeesco.com,1102,Administrator
+Discovery/dicovery_4661_net_group_domain_admins_target.evtx,2019-03-18 23:23:37.147709+00:00,WIN-77LTAPHIQ1R.example.corp,1102,administrator
+Discovery/discovery_bloodhound.evtx,2019-01-20 07:00:50.800224+00:00,WIN-77LTAPHIQ1R.example.corp,1102,Administrator
+Discovery/discovery_psloggedon.evtx,2019-01-20 07:29:57.863892+00:00,WIN-77LTAPHIQ1R.example.corp,1102,Administrator
+Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx,2019-03-18 11:06:25.485214+00:00,PC01.example.corp,1102,user01
+Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx,2019-03-19 00:02:00.383089+00:00,WIN-77LTAPHIQ1R.example.corp,1102,administrator
+Lateral Movement/LM_WMIC_4648_rpcss.evtx,2019-03-18 11:27:00.438450+00:00,PC01.example.corp,1102,user01
+Lateral Movement/net_share_drive_5142.evtx,2019-03-17 19:26:42.116688+00:00,PC04.example.corp,1102,IEUser
+Lateral Movement/remote task update 4624 4702 same logonid.evtx,2020-09-02 11:47:39.499107+00:00,01566s-win16-ir.threebeesco.com,1102,a-jbrown
+Persistence/DACL_DCSync_Right_Powerview_ Add-DomainObjectAcl.evtx,2019-03-25 21:28:11.073627+00:00,DC1.insecurebank.local,1102,bob
+Persistence/persistence_security_dcshadow_4742.evtx,2019-05-08 03:00:11.778189+00:00,DC1.insecurebank.local,1102,administrator
+Privilege Escalation/4624 LT3 AnonymousLogon Localhost - JuicyPotato.evtx,2019-11-15 08:19:02.298512+00:00,alice.insecurebank.local,1102,bob
+Privilege Escalation/NTLM2SelfRelay-med0x2e-security_4624_4688.evtx,2022-05-01 04:40:18.084003+00:00,wind10.winlab.local,1102,admin
+Privilege Escalation/Runas_4624_4648_Webshell_CreateProcessAsUserA.evtx,2020-09-15 18:04:36.333990+00:00,MSEDGEWIN10,1102,IEUser
+Privilege Escalation/samaccount_spoofing_CVE-2021-42287_CVE-2021-42278_DC_securitylogs.evtx,2021-12-12 17:57:17.006376+00:00,01566s-win16-ir.threebeesco.com,1102,a-jbrown
+Privilege Escalation/security_4624_4673_token_manip.evtx,2019-05-11 17:10:06.342443+00:00,IEWIN7,1102,IEUser

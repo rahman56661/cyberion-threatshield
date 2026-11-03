@@ -1,0 +1,26 @@
+_file,TimeCreated,Computer,EventID,SourceImage,TargetImage
+AutomatedTestingTools/Malware/sideloading_uacbypass_rundll32_injection_c2.evtx,2020-10-17 11:43:40.903538+00:00,MSEDGEWIN10,8,C:\Users\IEUser\AppData\Roaming\WINWORD.exe,C:\Windows\SysWOW64\explorer.exe
+Credential Access/CA_keefarce_keepass_credump.evtx,2019-04-27 18:47:00.062475+00:00,IEWIN7,8,C:\Users\Public\KeeFarce.exe,C:\Program Files\KeePass Password Safe 2\KeePass.exe
+Credential Access/CA_keepass_KeeThief_Get-KeePassDatabaseKey.evtx,2019-04-27 18:55:04.710608+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Program Files\KeePass Password Safe 2\KeePass.exe
+Credential Access/CA_keepass_KeeThief_Get-KeePassDatabaseKey.evtx,2019-04-27 18:55:04.980137+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Program Files\KeePass Password Safe 2\KeePass.exe
+Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,8,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\System32\lsass.exe
+Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,8,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\System32\lsass.exe
+Credential Access/sysmon_rdrleakdiag_lsass_dump.evtx,2020-09-28 12:47:36.206545+00:00,DESKTOP-PIU87N6,8,C:\Windows\System32\rdrleakdiag.exe,C:\Windows\System32\lsass.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.176922+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.208170+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.223797+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.255045+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.270672+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.286295+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.317545+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.333170+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.348797+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.364420+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.380045+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.395672+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.411295+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.426922+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.458170+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.473797+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.489420+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe
+Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx,2019-05-18 17:16:16.505045+00:00,IEWIN7,8,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,C:\Windows\System32\notepad.exe

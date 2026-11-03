@@ -1,0 +1,3 @@
+_file,TimeCreated,Computer,EventID,Image,ParentImage,CommandLine,TargetObject,Details
+Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx,2019-05-09 02:07:51.116072+00:00,IEWIN7,13,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,,,HKU\S-1-5-21-3583694148-1414552638-2922671848-1000_CLASSES\exefile\shell\runas\command\IsolatedCommand,C:\Windows\System32\cmd.exe /c notepad.exe
+Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx,2019-05-09 02:08:00.446150+00:00,IEWIN7,1,C:\Windows\System32\cmd.exe,C:\Windows\System32\sdclt.exe,"""C:\Windows\System32\cmd.exe"" /c notepad.exe",,

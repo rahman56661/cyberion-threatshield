@@ -1,0 +1,2 @@
+_file,TimeCreated,Computer,EventID,Image,TargetObject,Details
+Defense Evasion/DE_UAC_Disabled_Sysmon_12_13.evtx,2019-05-16 14:17:15.763712+00:00,DC1.insecurebank.local,13,C:\Windows\system32\reg.exe,HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\EnableLUA,DWORD (0x00000000)

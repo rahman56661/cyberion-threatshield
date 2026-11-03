@@ -1,0 +1,4 @@
+_file,TimeCreated,Computer,EventID,Image,TargetObject,Details
+AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx,2019-04-27 15:57:53.884487+00:00,IEWIN7,13,C:\Users\IEUser\AppData\Roaming\NvSmart.exe,HKU\S-1-5-21-3583694148-1414552638-2922671848-1000\Software\Microsoft\Windows\CurrentVersion\Run\360v,C:\Users\IEUser\AppData\Roaming\svchost.exe
+AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx,2020-10-15 13:17:02.736849+00:00,MSEDGEWIN10,13,C:\Users\Public\tools\apt\tendyron.exe,HKU\S-1-5-21-3461203602-4096304019-2269080069-1000\Software\Microsoft\Windows\CurrentVersion\Run\Tendyron,C:\Users\Public\tools\apt\tendyron.exe
+Persistence/evasion_persis_hidden_run_keyvalue_sysmon_13.evtx,2020-07-04 14:18:58.268711+00:00,MSEDGEWIN10,13,C:\Users\Public\tools\evasion\a.exe,HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\,"""c:\windows\tasks\taskhost.exe"""

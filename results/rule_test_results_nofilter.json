@@ -1,0 +1,267 @@
+{
+ "single": {
+  "DET-001": {
+   "name": "security_log_cleared",
+   "title": "Windows Security Event Log Cleared",
+   "level": "high",
+   "events": 24,
+   "files": [
+    "Command and Control/DE_RDP_Tunnel_5156.evtx",
+    "Credential Access/ACL_ForcePwd_SPNAdd_User_Computer_Accounts.evtx",
+    "Credential Access/CA_chrome_firefox_opera_4663.evtx",
+    "Credential Access/Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx",
+    "Credential Access/kerberos_pwd_spray_4771.evtx",
+    "Credential Access/remote_pwd_reset_rpc_mimikatz_postzerologon_target_DC.evtx",
+    "Credential Access/remote_sam_registry_access_via_backup_operator_priv.evtx",
+    "Defense Evasion/DE_1102_security_log_cleared.evtx",
+    "Defense Evasion/DE_suspicious_remote_eventlog_svc_access_5145.evtx",
+    "Discovery/dicovery_4661_net_group_domain_admins_target.evtx",
+    "Discovery/discovery_bloodhound.evtx",
+    "Discovery/discovery_psloggedon.evtx",
+    "Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx",
+    "Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx",
+    "Lateral Movement/LM_WMIC_4648_rpcss.evtx",
+    "Lateral Movement/net_share_drive_5142.evtx",
+    "Lateral Movement/remote task update 4624 4702 same logonid.evtx",
+    "Persistence/DACL_DCSync_Right_Powerview_ Add-DomainObjectAcl.evtx",
+    "Persistence/persistence_security_dcshadow_4742.evtx",
+    "Privilege Escalation/4624 LT3 AnonymousLogon Localhost - JuicyPotato.evtx",
+    "Privilege Escalation/NTLM2SelfRelay-med0x2e-security_4624_4688.evtx",
+    "Privilege Escalation/Runas_4624_4648_Webshell_CreateProcessAsUserA.evtx",
+    "Privilege Escalation/samaccount_spoofing_CVE-2021-42287_CVE-2021-42278_DC_securitylogs.evtx",
+    "Privilege Escalation/security_4624_4673_token_manip.evtx"
+   ]
+  },
+  "DET-002": {
+   "name": "system_log_cleared",
+   "title": "Windows System Event Log Cleared",
+   "level": "high",
+   "events": 2,
+   "files": [
+    "Credential Access/Zerologon_CVE-2020-1472_DFIR_System_NetLogon_Error_EventID_5805.evtx",
+    "Defense Evasion/DE_104_system_log_cleared.evtx"
+   ]
+  },
+  "DET-003": {
+   "name": "lsass_suspicious_access",
+   "title": "Suspicious Process Access to LSASS Memory",
+   "level": "high",
+   "events": 26,
+   "files": [
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+    "Credential Access/babyshark_mimikatz_powershell.evtx",
+    "Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+    "Credential Access/sysmon_10_11_lsass_memdump.evtx",
+    "Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx",
+    "Credential Access/sysmon_10_lsass_mimikatz_sekurlsa_logonpasswords.evtx",
+    "Credential Access/sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx",
+    "Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx",
+    "Credential Access/tutto_malseclogon.evtx",
+    "Defense Evasion/DE_BYOV_Zam64_CA_Memdump_sysmon_7_10.evtx",
+    "Discovery/discovery_meterpreter_ps_cmd_process_listing_sysmon_10.evtx",
+    "Persistence/sysmon_20_21_1_CommandLineEventConsumer.evtx",
+    "Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx"
+   ]
+  },
+  "DET-004": {
+   "name": "regsvr32_scriptlet_exec",
+   "title": "Regsvr32 Scriptlet Execution (Squiblydoo)",
+   "level": "high",
+   "events": 9,
+   "files": [
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx",
+    "Execution/exec_sysmon_lobin_regsvr32_sct.evtx",
+    "Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx"
+   ]
+  },
+  "DET-005": {
+   "name": "rundll32_proxy_exec",
+   "title": "Rundll32 Proxy Execution of Script or URL Handlers",
+   "level": "medium",
+   "events": 19,
+   "files": [
+    "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "Execution/Sysmon_Exec_CompiledHTML.evtx",
+    "Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+    "Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx",
+    "Execution/exec_sysmon_1_11_lolbin_rundll32_shdocvw_openurl.evtx",
+    "Execution/exec_sysmon_1_11_lolbin_rundll32_zipfldr_RouteTheCall.evtx",
+    "Execution/exec_sysmon_1_lolbin_rundll32_advpack_RegisterOCX.evtx",
+    "Execution/exec_sysmon_1_rundll32_pcwutl_LaunchApplication.evtx",
+    "Execution/sysmon_lolbas_rundll32_zipfldr_routethecall_shell.evtx",
+    "Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx"
+   ]
+  },
+  "DET-006": {
+   "name": "bitsadmin_abuse",
+   "title": "BITSAdmin Used for Transfer or Persistence",
+   "level": "medium",
+   "events": 10,
+   "files": [
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx"
+   ]
+  },
+  "DET-007": {
+   "name": "ifeo_debugger_backdoor",
+   "title": "Image File Execution Options Debugger Set (Accessibility Backdoor)",
+   "level": "high",
+   "events": 7,
+   "files": [
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx"
+   ]
+  },
+  "DET-008": {
+   "name": "runkey_user_writable_path",
+   "title": "Registry Run Key Pointing to User-Writable Path",
+   "level": "medium",
+   "events": 2,
+   "files": [
+    "AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx",
+    "AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx"
+   ]
+  },
+  "DET-009": {
+   "name": "uac_bypass_registry_hijack",
+   "title": "UAC Bypass via Registry Shell-Handler Hijack",
+   "level": "high",
+   "events": 5,
+   "files": [
+    "Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx",
+    "Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx",
+    "Privilege Escalation/Sysmon_UACME_33.evtx",
+    "Privilege Escalation/sysmon_13_1_compmgmtlauncherUACBypass.evtx"
+   ]
+  },
+  "DET-010": {
+   "name": "uac_disabled_enablelua",
+   "title": "UAC Disabled via EnableLUA Registry Value",
+   "level": "high",
+   "events": 1,
+   "files": [
+    "Defense Evasion/DE_UAC_Disabled_Sysmon_12_13.evtx"
+   ]
+  },
+  "DET-011": {
+   "name": "remote_thread_injection",
+   "title": "Remote Thread Created in Commonly Injected Process",
+   "level": "high",
+   "events": 101,
+   "files": [
+    "AutomatedTestingTools/Malware/sideloading_uacbypass_rundll32_injection_c2.evtx",
+    "Credential Access/CA_keefarce_keepass_credump.evtx",
+    "Credential Access/CA_keepass_KeeThief_Get-KeePassDatabaseKey.evtx",
+    "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+    "Credential Access/sysmon_rdrleakdiag_lsass_dump.evtx",
+    "Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx",
+    "Defense Evasion/meterpreter_migrate_to_explorer_sysmon_8.evtx",
+    "Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx",
+    "Privilege Escalation/privesc_rotten_potato_from_webshell_metasploit_sysmon_1_8_3.evtx"
+   ]
+  },
+  "DET-012": {
+   "name": "wmiprvse_suspicious_child",
+   "title": "WMI Provider Host Spawning Command Interpreter or LOLBin",
+   "level": "medium",
+   "events": 11,
+   "files": [
+    "Credential Access/sysmon_10_1_memdump_comsvcs_minidump.evtx",
+    "Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx",
+    "Lateral Movement/LM_wmiexec_impacket_sysmon_whoami.evtx",
+    "Lateral Movement/smbmap_upload_exec_sysmon.evtx",
+    "Persistence/sysmon_20_21_1_CommandLineEventConsumer.evtx"
+   ]
+  },
+  "DET-013": {
+   "name": "dcsync_non_machine_account",
+   "title": "DCSync Replication Rights Used by Non-Machine Account",
+   "level": "critical",
+   "events": 6,
+   "files": [
+    "Credential Access/ACL_ForcePwd_SPNAdd_User_Computer_Accounts.evtx",
+    "Credential Access/CA_DCSync_4662.evtx"
+   ]
+  },
+  "DET-014": {
+   "name": "remote_svcctl_access",
+   "title": "Remote Service Control Manager Access via SMB (svcctl)",
+   "level": "medium",
+   "events": 5,
+   "files": [
+    "Lateral Movement/LM_REMCOM_5145_TargetHost.evtx",
+    "Lateral Movement/LM_Remote_Service01_5145_svcctl.evtx",
+    "Lateral Movement/LM_renamed_psexecsvc_5145.evtx"
+   ]
+  },
+  "DET-015": {
+   "name": "suspicious_service_install",
+   "title": "Service Installed with Command Interpreter Binary Path",
+   "level": "high",
+   "events": 3,
+   "files": [
+    "Lateral Movement/LM_Remote_Service02_7045.evtx",
+    "Privilege Escalation/System_7045_namedpipe_privesc.evtx"
+   ]
+  },
+  "DET-016": {
+   "name": "scheduled_task_created_nonms",
+   "title": "Scheduled Task Created Outside Microsoft Task Path",
+   "level": "medium",
+   "events": 3,
+   "files": [
+    "Execution/temp_scheduled_task_4698_4699.evtx",
+    "Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx",
+    "Privilege Escalation/PrivEsc_SeImpersonatePriv_enabled_back_for_upnp_localsvc_4698.evtx"
+   ]
+  },
+  "DET-017": {
+   "name": "pth_seclogon_logon_type9",
+   "title": "Pass-the-Hash Style NewCredentials Logon via seclogo",
+   "level": "high",
+   "events": 4,
+   "files": [
+    "Credential Access/tutto_malseclogon.evtx",
+    "Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx",
+    "Privilege Escalation/Invoke_TokenDuplication_UAC_Bypass4624.evtx",
+    "Privilege Escalation/security_4624_4673_token_manip.evtx"
+   ]
+  },
+  "DET-018": {
+   "name": "rdp_loopback_tunnel",
+   "title": "RDP Logon from Loopback Address (Tunnelled RDP)",
+   "level": "high",
+   "events": 2,
+   "files": [
+    "Command and Control/DE_RDP_Tunnel_5156.evtx",
+    "Command and Control/DE_RDP_Tunneling_4624.evtx"
+   ]
+  },
+  "DET-019": {
+   "name": "ps_scriptblock_lsass_dump",
+   "title": "PowerShell Script Block Dumping LSASS Memory",
+   "level": "high",
+   "events": 1,
+   "files": [
+    "Credential Access/Powershell_4104_MiniDumpWriteDump_Lsass.evtx"
+   ]
+  },
+  "DET-020": {
+   "name": "autoelevate_binary_spawns_shell",
+   "title": "Auto-Elevating Binary Spawning Interpreter (UAC Bypass Child)",
+   "level": "high",
+   "events": 4,
+   "files": [
+    "Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx",
+    "Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx",
+    "Privilege Escalation/Sysmon_UACME_33.evtx",
+    "Privilege Escalation/sysmon_1_13_UACBypass_AppPath_Control.evtx"
+   ]
+  }
+ },
+ "correlation": {},
+ "total_events": 37364,
+ "no_filters": true
+}

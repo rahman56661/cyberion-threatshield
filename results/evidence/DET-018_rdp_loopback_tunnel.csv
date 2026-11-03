@@ -1,0 +1,3 @@
+_file,TimeCreated,Computer,EventID,SubjectUserName,TargetUserName,LogonType,LogonProcessName,IpAddress
+Command and Control/DE_RDP_Tunnel_5156.evtx,2019-02-13 18:04:58.363695+00:00,PC01.example.corp,4624,PC01$,admin01,10,User32 ,127.0.0.1
+Command and Control/DE_RDP_Tunneling_4624.evtx,2019-02-13 15:26:53.356781+00:00,PC02.example.corp,4624,PC02$,IEUser,10,User32 ,127.0.0.1

@@ -1,0 +1,4 @@
+_file,TimeCreated,Computer,EventID,ServiceName,ImagePath
+Lateral Movement/LM_Remote_Service02_7045.evtx,2019-03-03 09:20:28.621489+00:00,WIN-77LTAPHIQ1R.example.corp,7045,spoolfool,cmd.exe
+Lateral Movement/LM_Remote_Service02_7045.evtx,2019-03-03 09:24:24.699652+00:00,WIN-77LTAPHIQ1R.example.corp,7045,spoolsv,cmd.exe
+Privilege Escalation/System_7045_namedpipe_privesc.evtx,2019-05-12 12:52:43.702578+00:00,IEWIN7,7045,WinPwnage,%COMSPEC% /c ping -n 1 127.0.0.1 >nul && echo 'WinPwnage' > \\.\pipe\WinPwnagePipe

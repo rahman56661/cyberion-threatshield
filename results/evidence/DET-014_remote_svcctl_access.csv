@@ -1,0 +1,6 @@
+_file,TimeCreated,Computer,EventID,SubjectUserName,IpAddress,ShareName,RelativeTargetName,AccessMask
+Lateral Movement/LM_REMCOM_5145_TargetHost.evtx,2019-02-16 17:54:41.256813+00:00,PC01.example.corp,5145,IEUser,10.0.2.16,\\*\IPC$,svcctl,0x0012019f
+Lateral Movement/LM_REMCOM_5145_TargetHost.evtx,2019-02-16 17:56:01.472158+00:00,PC01.example.corp,5145,IEUser,10.0.2.16,\\*\IPC$,svcctl,0x0012019f
+Lateral Movement/LM_REMCOM_5145_TargetHost.evtx,2019-02-16 17:57:55.766504+00:00,PC01.example.corp,5145,IEUser,10.0.2.16,\\*\IPC$,svcctl,0x0012019f
+Lateral Movement/LM_Remote_Service01_5145_svcctl.evtx,2019-03-19 00:41:28.961628+00:00,WIN-77LTAPHIQ1R.example.corp,5145,Administrator,10.0.2.17,\\*\IPC$,svcctl,0x0012019f
+Lateral Movement/LM_renamed_psexecsvc_5145.evtx,2019-01-19 13:00:10.380732+00:00,IEWIN7,5145,IEUser,10.0.2.16,\\*\IPC$,svcctl,0x0012019f

@@ -1,0 +1,4 @@
+_file,TimeCreated,Computer,EventID,SubjectUserName,AccessMask
+Credential Access/CA_DCSync_4662.evtx,2019-05-08 02:10:43.487217+00:00,DC1.insecurebank.local,4662,Administrator,0x00000100
+Credential Access/CA_DCSync_4662.evtx,2019-05-08 02:10:43.487217+00:00,DC1.insecurebank.local,4662,Administrator,0x00000100
+Credential Access/CA_DCSync_4662.evtx,2019-05-08 02:10:43.487217+00:00,DC1.insecurebank.local,4662,Administrator,0x00000100

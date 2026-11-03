@@ -1,0 +1,5 @@
+_file,TimeCreated,Computer,EventID,SubjectUserName,TargetUserName,LogonType,LogonProcessName,IpAddress
+Credential Access/tutto_malseclogon.evtx,2021-12-07 17:33:01.616154+00:00,MSEDGEWIN10,4624,IEUser,IEUser,9,seclogo,::1
+Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx,2019-03-18 11:06:29.911579+00:00,PC01.example.corp,4624,user01,user01,9,seclogo,::1
+Privilege Escalation/Invoke_TokenDuplication_UAC_Bypass4624.evtx,2019-08-05 09:39:30.697731+00:00,MSEDGEWIN10,4624,IEUser,IEUser,9,seclogo,::1
+Privilege Escalation/security_4624_4673_token_manip.evtx,2019-05-11 17:10:10.889318+00:00,IEWIN7,4624,IEUser,IEUser,9,seclogo,::1
