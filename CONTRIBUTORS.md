@@ -1,6 +1,6 @@
-# Contributors
+﻿# Contributors
 
 | Name | Role |
 |---|---|
-| Habebur Rahman | Detection engineering, rules, test harness |
-| **Aleena K Mani** | (edit: e.g. threat hunting, case reports, playbooks) |
+| Habebur Rahman | Detection engineering: Sigma rules, test harness, ATT&CK coverage matrix, tuning report, methodology |
+| Aleena K Mani | Threat hunting, incident case reports, IR playbooks, IOC research, executive summary, presentation |
