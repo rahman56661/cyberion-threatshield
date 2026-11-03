@@ -113,6 +113,8 @@ def run_correlation(df_all, crule, matches_by_name):
 KEYCOLS = ["_file","TimeCreated","Computer","EventID","Image","ParentImage","CommandLine","SourceImage","TargetImage","GrantedAccess","TargetObject","Details","SubjectUserName","TargetUserName","LogonType","LogonProcessName","IpAddress","ShareName","RelativeTargetName","ServiceName","ImagePath","TaskName","AccessMask"]
 
 if __name__ == "__main__":
+    import subprocess, sys
+    subprocess.run([sys.executable, "tools/defang.py"], check=False)
     nf = "--no-filters" in sys.argv
     df = pd.read_pickle("parsed/events.pkl")
     res = {}; by_name = {}
