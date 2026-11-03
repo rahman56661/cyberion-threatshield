@@ -9,7 +9,7 @@ references:
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_keefarce_keepass_credump.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_keepass_KeeThief_Get-KeePassDatabaseKey.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx'
-author: Madhan (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.stealth

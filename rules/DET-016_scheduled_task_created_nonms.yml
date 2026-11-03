@@ -8,7 +8,7 @@ references:
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/temp_scheduled_task_4698_4699.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Privilege Escalation/PrivEsc_SeImpersonatePriv_enabled_back_for_upnp_localsvc_4698.evtx'
-author: Madhan (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.execution

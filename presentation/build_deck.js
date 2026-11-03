@@ -6,7 +6,7 @@ const res = JSON.parse(fs.readFileSync("results/rule_test_results.json"));
 const THEME = { name: "ThreatShield", headFontFace: "Georgia", bodyFontFace: "Calibri",
   colors: { dk1: "0B1F2A", lt1: "FFFFFF", dk2: "12343B", lt2: "EEF3F2", accent1: "0E7C86", accent2: "F2A541", accent3: "D64545", accent4: "3FA34D", accent5: "6B7A8F", accent6: "1C3D5A", hlink: "0E7C86", folHlink: "6B7A8F" } };
 const pres = new pptxgen(); pres.layout = "LAYOUT_16x9"; pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
-pres.title = "Cyberion ThreatShield - Final Presentation"; pres.author = "Madhan";
+pres.title = "Cyberion ThreatShield - Final Presentation"; pres.author = "Habebur Rahman";
 const C = pres.SchemeColor;
 
 pres.defineSlideMaster({ title: "DARK", background: { color: "0B1F2A" }, objects: [
@@ -14,7 +14,7 @@ pres.defineSlideMaster({ title: "DARK", background: { color: "0B1F2A" }, objects
 pres.defineSlideMaster({ title: "LIGHT", background: { color: "FFFFFF" }, objects: [
   { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 8.8, h: 0.8, fontFace: THEME.headFontFace, fontSize: 26, bold: true, color: "0B1F2A", valign: "middle", margin: 0 }, text: "" } },
   { rect: { x: 0.6, y: 1.18, w: 0.9, h: 0.05, fill: { color: "0E7C86" } } },
-  { text: { text: "Cyberion ThreatShield | Madhan", options: { x: 0.6, y: 5.25, w: 5, h: 0.25, fontSize: 9, color: "6B7A8F", margin: 0 } } } ] });
+  { text: { text: "Cyberion ThreatShield | Habebur Rahman", options: { x: 0.6, y: 5.25, w: 5, h: 0.25, fontSize: 9, color: "6B7A8F", margin: 0 } } } ] });
 
 function card(s, x, y, w, h, big, small, col) {
   s.addShape(pres.ShapeType.roundRect, { x, y, w, h, fill: { color: "EEF3F2" }, line: { color: "EEF3F2" }, rectRadius: 0.08, objectName: "card" });
@@ -25,7 +25,7 @@ function card(s, x, y, w, h, big, small, col) {
 let s = pres.addSlide({ masterName: "DARK" });
 s.addText("Cyberion ThreatShield", { placeholder: "title" });
 s.addText("Detection Engineering & Threat Hunting", { x: 0.6, y: 2.75, w: 8.8, h: 0.5, fontSize: 22, color: "F2A541", margin: 0, isTextBox: true });
-s.addText("Internmo internship project | Madhan | 22 Sigma rules, 4 correlations, validated on 37,364 real Windows events", { x: 0.6, y: 3.4, w: 8.8, h: 0.8, fontSize: 14, color: "CADCFC", margin: 0, isTextBox: true });
+s.addText([{ text: "Habebur Rahman & ", options: {} }, { text: "FRIEND_NAME_HERE", options: { highlight: "FFFF00", color: "0B1F2A", bold: true, breakLine: true } }, { text: "Internmo internship project | 22 Sigma rules, 4 correlations, validated on 37,364 real Windows events", options: {} }], { x: 0.6, y: 3.4, w: 8.8, h: 1.1, fontSize: 14, color: "CADCFC", margin: 0, isTextBox: true, valign: "top" });
 s.addNotes("Single-analyst detection engineering engagement. All results come from running rules against real attack telemetry, not assumptions.");
 // 2 Summary
 s = pres.addSlide({ masterName: "LIGHT" }); s.addText("Result: every rule fired on real attack logs", { placeholder: "title" });

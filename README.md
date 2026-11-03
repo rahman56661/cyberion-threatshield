@@ -1,6 +1,6 @@
 # Cyberion ThreatShield - Detection Engineering & Threat Hunting
 
-Individual 4-week engagement (project code CDL-DET-V2), compressed delivery. Analyst: **Madhan**.
+Individual 4-week engagement (project code CDL-DET-V2), compressed delivery. Authors: **Habebur Rahman** and **FRIEND_NAME_HERE**.
 Everything is evidence-backed: all 26 rules were executed against 37,364 real Windows events from 278 attack samples.
 
 ## Deliverables (PRD Section 12)
@@ -18,6 +18,14 @@ Everything is evidence-backed: all 26 rules were executed against 37,364 real Wi
 | Tuning report (5 passes) | `docs/04_tuning_report.md` |
 | Final presentation | `presentation/ThreatShield_Final_Presentation.pptx` |
 | Test harness (stretch goal) | `tools/sigma_runner.py` |
+
+## Authors and license
+- Habebur Rahman
+- **FRIEND_NAME_HERE**
+
+Original work in this repository (rules, tools, documents) is released under the MIT License (see `LICENSE`). The telemetry dataset is **not** redistributed here; EVTX-ATTACK-SAMPLES is a separate project under its own GPL license. See `CONTRIBUTING.md` for how we collaborate.
+
+> Educational project built on public lab telemetry. Detection rules are provided as-is and have not been tuned on benign production traffic; test before deploying.
 
 ## Quick start
 ```bash

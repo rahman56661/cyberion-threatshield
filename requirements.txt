@@ -1,0 +1,7 @@
+python-evtx
+lxml
+pandas
+pyyaml
+sigma-cli
+pysigma-backend-splunk
+openpyxl

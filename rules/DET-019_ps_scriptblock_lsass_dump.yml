@@ -6,7 +6,7 @@ description: Detects Script Block Logging (4104) content referencing lsass toget
 references:
 - https://attack.mitre.org/techniques/T1003/001/
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/Powershell_4104_MiniDumpWriteDump_Lsass.evtx'
-author: Madhan (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.credential-access

@@ -7,7 +7,7 @@ references:
 - https://attack.mitre.org/techniques/T1546/015/
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Persistence/persist_turla_outlook_backdoor_comhijack.evtx'
-author: Madhan (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.persistence

@@ -1,7 +1,7 @@
 """Generates Sigma correlation rules (rules/correlation/)."""
 import yaml, uuid, os, json
 NS = uuid.UUID("c0ffee00-0000-4000-8000-000000000001")
-AUTHOR = "Madhan (Cyberion Defense Labs - Detection Engineering)"
+AUTHOR = "Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)"
 C = [
  dict(cid="COR-001", name="uac_bypass_chain", title="UAC Bypass Chain: Registry Hijack Followed by Elevated Interpreter",
   desc="Correlates a UAC-bypass registry handler hijack with an auto-elevating binary spawning an interpreter on the same host within 5 minutes. Combining both stages gives near-certain confidence compared with either rule alone.",
