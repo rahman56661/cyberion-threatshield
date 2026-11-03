@@ -1,11 +1,15 @@
 """Parse every .evtx in data/ into one flat JSONL file (one event per line).
 Reproducible: python tools/parse_evtx.py"""
-import json, os, sys, glob
+import json
+import os
+import sys
+import glob
 from multiprocessing import Pool
 from Evtx.Evtx import Evtx
 from lxml import etree
 
 NS = {"e": "http://schemas.microsoft.com/win/2004/08/events/event"}
+
 
 def parse_file(path):
     rows = []
@@ -19,8 +23,11 @@ def parse_file(path):
                 except Exception:
                     continue
                 s = root.find("e:System", NS)
-                if s is None: continue
-                g = lambda t: (s.find(f"e:{t}", NS).text if s.find(f"e:{t}", NS) is not None else None)
+                if s is None:
+                    continue
+
+                def g(t): return (s.find(f"e:{t}", NS).text if s.find(
+                    f"e:{t}", NS) is not None else None)
                 tc = s.find("e:TimeCreated", NS)
                 d = {
                     "_file": rel, "_tactic": tactic,
@@ -44,16 +51,20 @@ def parse_file(path):
         sys.stderr.write(f"ERR {rel}: {ex}\n")
     return rows
 
+
 if __name__ == "__main__":
     import multiprocessing
     multiprocessing.freeze_support()
+    os.makedirs("parsed", exist_ok=True)
     files = sorted(glob.glob("data/**/*.evtx", recursive=True))
-    print(f"Found {len(files)} files. Parsing takes 5-10 min. Do NOT press Ctrl+C.", flush=True)
+    print(
+        f"Found {len(files)} files. Parsing takes 5-10 min. Do NOT press Ctrl+C.", flush=True)
     n = 0
     with Pool(max(1, (os.cpu_count() or 2) - 1)) as p, open("parsed/events.jsonl", "w", encoding="utf-8") as out:
         for i, rows in enumerate(p.imap(parse_file, files, chunksize=2), 1):
             for r in rows:
-                out.write(json.dumps(r) + "\n"); n += 1
+                out.write(json.dumps(r) + "\n")
+                n += 1
             if i % 20 == 0:
                 print(f"{i}/{len(files)} files, {n} events", flush=True)
     print(f"files={len(files)} events={n}")
