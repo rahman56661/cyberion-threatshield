@@ -68,11 +68,12 @@
    "name": "regsvr32_scriptlet_exec",
    "title": "Regsvr32 Scriptlet Execution (Squiblydoo)",
    "level": "high",
-   "events": 9,
+   "events": 10,
    "files": [
     "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
     "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
     "Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx",
+    "Execution/exec_sysmon_1_lolbin_renamed_regsvr32_scrobj.evtx",
     "Execution/exec_sysmon_lobin_regsvr32_sct.evtx",
     "Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx"
    ]
@@ -109,19 +110,21 @@
    "name": "ifeo_debugger_backdoor",
    "title": "Image File Execution Options Debugger Set (Accessibility Backdoor)",
    "level": "high",
-   "events": 7,
+   "events": 8,
    "files": [
-    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx"
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "Persistence/persistence_SilentProcessExit_ImageHijack_sysmon_13_1.evtx"
    ]
   },
   "DET-008": {
    "name": "runkey_user_writable_path",
    "title": "Registry Run Key Pointing to User-Writable Path",
    "level": "medium",
-   "events": 2,
+   "events": 3,
    "files": [
     "AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx",
-    "AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx"
+    "AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx",
+    "Persistence/evasion_persis_hidden_run_keyvalue_sysmon_13.evtx"
    ]
   },
   "DET-009": {
@@ -259,9 +262,146 @@
     "Privilege Escalation/Sysmon_UACME_33.evtx",
     "Privilege Escalation/sysmon_1_13_UACBypass_AppPath_Control.evtx"
    ]
+  },
+  "DET-021": {
+   "name": "com_hijack_clsid_user_path",
+   "title": "COM Object Hijack: CLSID Server Key Pointing to User-Writable Path",
+   "level": "high",
+   "events": 2,
+   "files": [
+    "Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx",
+    "Persistence/persist_turla_outlook_backdoor_comhijack.evtx"
+   ]
+  },
+  "DET-022": {
+   "name": "lolbin_external_connection",
+   "title": "LOLBin Initiating Outbound Connection to a Public IP Address",
+   "level": "medium",
+   "events": 15,
+   "files": [
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx",
+    "Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+    "Execution/exec_sysmon_lobin_regsvr32_sct.evtx",
+    "Execution/sysmon_mshta_sharpshooter_stageless_meterpreter.evtx",
+    "Execution/sysmon_vbs_sharpshooter_stageless_meterpreter.evtx",
+    "Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx"
+   ]
   }
  },
- "correlation": {},
+ "correlation": {
+  "COR-001": {
+   "title": "UAC Bypass Chain: Registry Hijack Followed by Elevated Interpreter",
+   "type": "temporal_ordered",
+   "groups_matched": 3,
+   "files": [
+    "Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx",
+    "Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx",
+    "Privilege Escalation/Sysmon_UACME_33.evtx"
+   ],
+   "examples": [
+    {
+     "key": [
+      "Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx",
+      "IEWIN7"
+     ],
+     "start": "2019-05-09 02:07:51.116072+00:00",
+     "count": 2
+    },
+    {
+     "key": [
+      "Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx",
+      "IEWIN7"
+     ],
+     "start": "2019-05-09 01:59:28.669022+00:00",
+     "count": 2
+    },
+    {
+     "key": [
+      "Privilege Escalation/Sysmon_UACME_33.evtx",
+      "MSEDGEWIN10"
+     ],
+     "start": "2019-08-03 10:14:02.929209+00:00",
+     "count": 2
+    }
+   ]
+  },
+  "COR-002": {
+   "title": "Process Injection Burst: Repeated Remote Thread Creation from One Source",
+   "type": "event_count",
+   "groups_matched": 2,
+   "files": [
+    "Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx",
+    "Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx"
+   ],
+   "examples": [
+    {
+     "key": [
+      "Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx",
+      "IEWIN7",
+      "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+     ],
+     "start": "2019-05-18 17:16:16.176922+00:00",
+     "count": 82
+    },
+    {
+     "key": [
+      "Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx",
+      "IEWIN7",
+      "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+     ],
+     "start": "2019-07-03 20:39:30.129732+00:00",
+     "count": 9
+    }
+   ]
+  },
+  "COR-003": {
+   "title": "Credential Dumping via Injection: LSASS Access Plus Remote Thread",
+   "type": "temporal",
+   "groups_matched": 1,
+   "files": [
+    "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx"
+   ],
+   "examples": [
+    {
+     "key": [
+      "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+      "IEWIN7"
+     ],
+     "start": "2019-04-30 12:43:43.784178+00:00",
+     "count": 3
+    }
+   ]
+  },
+  "COR-004": {
+   "title": "Download via BITSAdmin Followed by Scriptlet Execution",
+   "type": "temporal_ordered",
+   "groups_matched": 2,
+   "files": [
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx"
+   ],
+   "examples": [
+    {
+     "key": [
+      "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+      "MSEDGEWIN10"
+     ],
+     "start": "2019-07-19 14:48:04.103365+00:00",
+     "count": 2
+    },
+    {
+     "key": [
+      "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+      "MSEDGEWIN10"
+     ],
+     "start": "2019-07-29 21:33:03.193386+00:00",
+     "count": 2
+    }
+   ]
+  }
+ },
  "total_events": 37364,
  "no_filters": true
 }

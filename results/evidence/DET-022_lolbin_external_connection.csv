@@ -1,0 +1,13 @@
+_file,TimeCreated,Computer,EventID,Image
+AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx,2019-07-19 14:53:46.589405+00:00,MSEDGEWIN10,3,C:\Windows\System32\regsvr32.exe
+AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx,2019-07-29 21:33:20.711067+00:00,MSEDGEWIN10,3,C:\Windows\System32\mshta.exe
+AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx,2019-07-29 21:33:20.711201+00:00,MSEDGEWIN10,3,C:\Windows\System32\mshta.exe
+AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx,2019-07-29 21:33:46.095762+00:00,MSEDGEWIN10,3,C:\Windows\System32\regsvr32.exe
+AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx,2019-07-29 21:34:12.352682+00:00,MSEDGEWIN10,3,C:\Windows\System32\rundll32.exe
+AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx,2019-07-29 21:34:21.867100+00:00,MSEDGEWIN10,3,C:\Windows\System32\certutil.exe
+AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx,2019-07-29 21:34:21.867544+00:00,MSEDGEWIN10,3,C:\Windows\System32\certutil.exe
+Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx,2019-05-21 15:32:59.389278+00:00,IEWIN7,3,C:\Windows\System32\mshta.exe
+Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx,2019-05-21 15:33:00.140358+00:00,IEWIN7,3,C:\Windows\System32\mshta.exe
+Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx,2019-05-21 15:33:01.141798+00:00,IEWIN7,3,C:\Windows\System32\mshta.exe
+Execution/exec_sysmon_lobin_regsvr32_sct.evtx,2019-05-12 18:35:06.562199+00:00,IEWIN7,3,C:\Windows\System32\regsvr32.exe
+Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx,2019-05-13 18:03:21.212896+00:00,IEWIN7,3,C:\Windows\System32\regsvr32.exe

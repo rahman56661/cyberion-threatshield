@@ -260,6 +260,29 @@
     "Privilege Escalation/Sysmon_UACME_33.evtx",
     "Privilege Escalation/sysmon_1_13_UACBypass_AppPath_Control.evtx"
    ]
+  },
+  "DET-021": {
+   "name": "com_hijack_clsid_user_path",
+   "title": "COM Object Hijack: CLSID Server Key Pointing to User-Writable Path",
+   "level": "high",
+   "events": 2,
+   "files": [
+    "Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx",
+    "Persistence/persist_turla_outlook_backdoor_comhijack.evtx"
+   ]
+  },
+  "DET-022": {
+   "name": "lolbin_external_connection",
+   "title": "LOLBin Initiating Outbound Connection to a Public IP Address",
+   "level": "medium",
+   "events": 12,
+   "files": [
+    "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+    "Execution/exec_sysmon_lobin_regsvr32_sct.evtx",
+    "Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx"
+   ]
   }
  },
  "correlation": {

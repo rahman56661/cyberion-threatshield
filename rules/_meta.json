@@ -397,5 +397,44 @@
   ],
   "file": "rules/DET-020_autoelevate_binary_spawns_shell.yml",
   "id": "b9dfd964-f290-5471-b6df-7165bfafa95f"
+ },
+ {
+  "rid": "DET-021",
+  "name": "com_hijack_clsid_user_path",
+  "title": "COM Object Hijack: CLSID Server Key Pointing to User-Writable Path",
+  "tactic": "persistence",
+  "techs": [
+   "t1546.015"
+  ],
+  "level": "high",
+  "why": "A CLSID server redirected to a user-writable DLL gives stealthy, logon-triggered persistence; per-user installers are the main benign source.",
+  "samples": [
+   "Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx"
+  ],
+  "fps": [
+   "Per-user installed COM components (e.g., some Office add-ins, Teams/OneDrive shell extensions) register under HKCU with AppData paths"
+  ],
+  "file": "rules/DET-021_com_hijack_clsid_user_path.yml",
+  "id": "18f84ad9-0059-5770-a610-1eba22b69013"
+ },
+ {
+  "rid": "DET-022",
+  "name": "lolbin_external_connection",
+  "title": "LOLBin Initiating Outbound Connection to a Public IP Address",
+  "tactic": "command-and-control",
+  "techs": [
+   "t1105"
+  ],
+  "level": "medium",
+  "why": "These binaries rarely need internet access; connection to a public IP is suspicious but certificate/CRL lookups cause some noise.",
+  "samples": [
+   "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx"
+  ],
+  "fps": [
+   "certutil used for legitimate CRL/certificate retrieval by some scripts",
+   "Software installers invoking rundll32/regsvr32 with network access"
+  ],
+  "file": "rules/DET-022_lolbin_external_connection.yml",
+  "id": "217af7d4-2c23-5ac1-82e1-a965a2fc85a3"
  }
 ]

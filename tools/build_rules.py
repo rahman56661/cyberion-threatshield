@@ -188,6 +188,26 @@ rule("DET-020","autoelevate_binary_spawns_shell","Auto-Elevating Binary Spawning
  "high","High-integrity interpreter under an auto-elevating parent is a near-certain UAC bypass.",
  ["Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx"])
 
+
+rule("DET-021","com_hijack_clsid_user_path","COM Object Hijack: CLSID Server Key Pointing to User-Writable Path",
+ "Hunt 01 output. Detects registry writes that set a CLSID InprocServer32/LocalServer32 default value to a user-writable location (ProgramData, Users, Temp, AppData, Windows\\Tasks), the persistence pattern of COM hijacking used by Turla-style Outlook backdoors and Firefox hijacks.",
+ "persistence",["t1546.015"],"sysmon",
+ {"selection":{"EventID":13,"TargetObject|contains":"\\CLSID\\{","TargetObject|re":"\\\\(InprocServer32|LocalServer32)\\\\[\\(\\{]Default[\\)\\}]$",
+   "Details|contains":["\\ProgramData\\","\\Users\\","\\Temp\\","\\AppData\\","\\Windows\\Tasks\\"]}},"selection",
+ ["Per-user installed COM components (e.g., some Office add-ins, Teams/OneDrive shell extensions) register under HKCU with AppData paths"],
+ "high","A CLSID server redirected to a user-writable DLL gives stealthy, logon-triggered persistence; per-user installers are the main benign source.",
+ ["Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx"])
+
+rule("DET-022","lolbin_external_connection","LOLBin Initiating Outbound Connection to a Public IP Address",
+ "Hunt 02 pivot output. Detects certutil, mshta, regsvr32, rundll32, bitsadmin or wscript/cscript making outbound network connections to a non-private address, a hallmark of living-off-the-land payload download.",
+ "command-and-control",["t1105"],"sysmon",
+ {"selection":{"EventID":3,"Initiated":"true","Image|endswith":["\\certutil.exe","\\mshta.exe","\\regsvr32.exe","\\rundll32.exe","\\bitsadmin.exe","\\wscript.exe","\\cscript.exe"]},
+  "filter_private":{"DestinationIp|startswith":["10.","192.168.","127.","169.254.","::1","0:0:0:0:0:0:0:1","fe80","172.16.","172.17.","172.18.","172.19.","172.20.","172.21.","172.22.","172.23.","172.24.","172.25.","172.26.","172.27.","172.28.","172.29.","172.30.","172.31."]}},
+ "selection and not filter_private",
+ ["certutil used for legitimate CRL/certificate retrieval by some scripts","Software installers invoking rundll32/regsvr32 with network access"],
+ "medium","These binaries rarely need internet access; connection to a public IP is suspicious but certificate/CRL lookups cause some noise.",
+ ["AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx"])
+
 def fired_samples(rid):
     try:
         res = json.load(open("results/rule_test_results.json"))["single"][rid]["files"]

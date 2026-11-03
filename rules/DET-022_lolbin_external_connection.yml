@@ -1,0 +1,61 @@
+title: LOLBin Initiating Outbound Connection to a Public IP Address
+id: 217af7d4-2c23-5ac1-82e1-a965a2fc85a3
+name: lolbin_external_connection
+status: experimental
+description: Hunt 02 pivot output. Detects certutil, mshta, regsvr32, rundll32, bitsadmin or wscript/cscript making outbound network connections to a non-private address, a hallmark of living-off-the-land payload download.
+references:
+- https://attack.mitre.org/techniques/T1105/
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_sysmon_lobin_regsvr32_sct.evtx'
+author: Madhan (Cyberion Defense Labs - Detection Engineering)
+date: '2026-11-03'
+tags:
+- attack.command-and-control
+- attack.t1105
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 3
+    Initiated: 'true'
+    Image|endswith:
+    - \certutil.exe
+    - \mshta.exe
+    - \regsvr32.exe
+    - \rundll32.exe
+    - \bitsadmin.exe
+    - \wscript.exe
+    - \cscript.exe
+  filter_private:
+    DestinationIp|startswith:
+    - '10.'
+    - 192.168.
+    - '127.'
+    - 169.254.
+    - ::1
+    - 0:0:0:0:0:0:0:1
+    - fe80
+    - 172.16.
+    - 172.17.
+    - 172.18.
+    - 172.19.
+    - 172.20.
+    - 172.21.
+    - 172.22.
+    - 172.23.
+    - 172.24.
+    - 172.25.
+    - 172.26.
+    - 172.27.
+    - 172.28.
+    - 172.29.
+    - 172.30.
+    - 172.31.
+  condition: selection and not filter_private
+falsepositives:
+- certutil used for legitimate CRL/certificate retrieval by some scripts
+- Software installers invoking rundll32/regsvr32 with network access
+level: medium

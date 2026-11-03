@@ -1,0 +1,144 @@
+{
+ "T1053.005": {
+  "name": "Scheduled Task",
+  "tactics": [
+   "execution",
+   "persistence",
+   "privilege-escalation"
+  ]
+ },
+ "T1047": {
+  "name": "Windows Management Instrumentation",
+  "tactics": [
+   "execution"
+  ]
+ },
+ "T1218.011": {
+  "name": "Rundll32",
+  "tactics": [
+   "stealth"
+  ]
+ },
+ "T1548.002": {
+  "name": "Bypass User Account Control",
+  "tactics": [
+   "privilege-escalation"
+  ]
+ },
+ "T1543.003": {
+  "name": "Windows Service",
+  "tactics": [
+   "persistence",
+   "privilege-escalation"
+  ]
+ },
+ "T1055": {
+  "name": "Process Injection",
+  "tactics": [
+   "stealth",
+   "privilege-escalation"
+  ]
+ },
+ "T1021.002": {
+  "name": "SMB/Windows Admin Shares",
+  "tactics": [
+   "lateral-movement"
+  ]
+ },
+ "T1572": {
+  "name": "Protocol Tunneling",
+  "tactics": [
+   "command-and-control"
+  ]
+ },
+ "T1112": {
+  "name": "Modify Registry",
+  "tactics": [
+   "defense-impairment",
+   "persistence"
+  ]
+ },
+ "T1003.001": {
+  "name": "LSASS Memory",
+  "tactics": [
+   "credential-access"
+  ]
+ },
+ "T1546.012": {
+  "name": "Image File Execution Options Injection",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
+  ]
+ },
+ "T1546.008": {
+  "name": "Accessibility Features",
+  "tactics": [
+   "privilege-escalation",
+   "persistence"
+  ]
+ },
+ "T1685.005": {
+  "name": "Clear Windows Event Logs",
+  "tactics": [
+   "defense-impairment"
+  ]
+ },
+ "T1070": {
+  "name": "Indicator Removal",
+  "tactics": [
+   "stealth"
+  ]
+ },
+ "T1547.001": {
+  "name": "Registry Run Keys / Startup Folder",
+  "tactics": [
+   "persistence",
+   "privilege-escalation"
+  ]
+ },
+ "T1218.010": {
+  "name": "Regsvr32",
+  "tactics": [
+   "stealth"
+  ]
+ },
+ "T1197": {
+  "name": "BITS Jobs",
+  "tactics": [
+   "stealth",
+   "persistence",
+   "execution"
+  ]
+ },
+ "T1550.002": {
+  "name": "Pass the Hash",
+  "tactics": [
+   "lateral-movement"
+  ]
+ },
+ "T1105": {
+  "name": "Ingress Tool Transfer",
+  "tactics": [
+   "command-and-control"
+  ]
+ },
+ "T1021.001": {
+  "name": "Remote Desktop Protocol",
+  "tactics": [
+   "lateral-movement"
+  ]
+ },
+ "T1569.002": {
+  "name": "Service Execution",
+  "tactics": [
+   "execution"
+  ]
+ },
+ "T1003.006": {
+  "name": "DCSync",
+  "tactics": [
+   "credential-access"
+  ]
+ }
+}
