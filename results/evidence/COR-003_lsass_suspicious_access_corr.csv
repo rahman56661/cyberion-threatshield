@@ -1,4 +1,4 @@
 _file,TimeCreated,Computer,EventID,SourceImage,TargetImage,GrantedAccess
+Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,8,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\System32\lsass.exe,
+Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,8,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\System32\lsass.exe,
 Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,10,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\system32\lsass.exe,0x001f1fff
-Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,8,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\System32\lsass.exe,
-Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx,2019-04-30 12:43:43.784178+00:00,IEWIN7,8,\\VBOXSVR\HTools\voice_mail.msg.exe,C:\Windows\System32\lsass.exe,

@@ -46,11 +46,12 @@
    "name": "lsass_suspicious_access",
    "title": "Suspicious Process Access to LSASS Memory",
    "level": "high",
-   "events": 24,
+   "events": 26,
    "files": [
     "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
     "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
     "Credential Access/babyshark_mimikatz_powershell.evtx",
+    "Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
     "Credential Access/sysmon_10_11_lsass_memdump.evtx",
     "Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx",
     "Credential Access/sysmon_10_lsass_mimikatz_sekurlsa_logonpasswords.evtx",

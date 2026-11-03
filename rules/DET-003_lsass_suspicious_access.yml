@@ -8,7 +8,7 @@ references:
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/babyshark_mimikatz_powershell.evtx'
-- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/sysmon_10_11_lsass_memdump.evtx'
+- 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx'
 author: Madhan (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
@@ -32,7 +32,6 @@ detection:
     - 1f3fff
   filter_system:
     SourceImage|endswith:
-    - \services.exe
     - \wininit.exe
     - \csrss.exe
     - \MsMpEng.exe

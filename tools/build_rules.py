@@ -32,7 +32,7 @@ rule("DET-003","lsass_suspicious_access","Suspicious Process Access to LSASS Mem
  "credential-access",["t1003.001"],"sysmon",
  {"selection":{"EventID":10,"TargetImage|endswith":"\\lsass.exe",
    "GrantedAccess|endswith":["1010","1410","1fffff","1f1fff","143a","1438","101ffb","1f3fff"]},
-  "filter_system":{"SourceImage|endswith":["\\services.exe","\\wininit.exe","\\csrss.exe","\\MsMpEng.exe","\\lsm.exe"]}},
+  "filter_system":{"SourceImage|endswith":["\\wininit.exe","\\csrss.exe","\\MsMpEng.exe","\\lsm.exe"]}},
  "selection and not filter_system",
  ["Endpoint protection / backup agents opening LSASS (add their paths to filter_system)","Crash-dump tooling used by IT"],
  "high","LSASS holds credential material; broad read/dump rights from non-system binaries are a strong indicator of credential theft.",
