@@ -7,7 +7,7 @@ references:
 - https://attack.mitre.org/techniques/T1548/002/
 - https://attack.mitre.org/techniques/T1112/
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Defense Evasion/DE_UAC_Disabled_Sysmon_12_13.evtx'
-author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, Aleena K Mani (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.defense-impairment

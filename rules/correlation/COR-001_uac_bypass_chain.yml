@@ -5,7 +5,7 @@ status: experimental
 description: Correlates a UAC-bypass registry handler hijack with an auto-elevating binary spawning an interpreter on the same host within 5 minutes. Combining both stages gives near-certain confidence compared with either rule alone.
 references:
 - https://github.com/SigmaHQ/sigma-specification/blob/main/specification/sigma-correlation-rules-specification.md
-author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, Aleena K Mani (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.privilege-escalation

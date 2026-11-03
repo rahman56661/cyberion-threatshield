@@ -2,7 +2,7 @@
 import yaml, uuid, os, json
 NS = uuid.UUID("c0ffee00-0000-4000-8000-000000000001")
 DATE = "2026-11-03"
-AUTHOR = "Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)"
+AUTHOR = "Habebur Rahman, Aleena K Mani (Cyberion Defense Labs - Detection Engineering)"
 EV = "https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES"
 def mitre(t): return f"https://attack.mitre.org/techniques/{t.upper().replace('.','/')}/"
 

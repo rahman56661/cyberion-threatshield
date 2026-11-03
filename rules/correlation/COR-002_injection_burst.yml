@@ -5,7 +5,7 @@ status: experimental
 description: Detects five or more suspicious CreateRemoteThread events from the same source image within one minute, characteristic of reflective injection frameworks looping through targets or migrating payloads.
 references:
 - https://github.com/SigmaHQ/sigma-specification/blob/main/specification/sigma-correlation-rules-specification.md
-author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, Aleena K Mani (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.stealth

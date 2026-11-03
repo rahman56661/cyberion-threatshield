@@ -25,7 +25,7 @@ function card(s, x, y, w, h, big, small, col) {
 let s = pres.addSlide({ masterName: "DARK" });
 s.addText("Cyberion ThreatShield", { placeholder: "title" });
 s.addText("Detection Engineering & Threat Hunting", { x: 0.6, y: 2.75, w: 8.8, h: 0.5, fontSize: 22, color: "F2A541", margin: 0, isTextBox: true });
-s.addText([{ text: "Habebur Rahman & ", options: {} }, { text: "FRIEND_NAME_HERE", options: { highlight: "FFFF00", color: "0B1F2A", bold: true, breakLine: true } }, { text: "Internmo internship project | 22 Sigma rules, 4 correlations, validated on 37,364 real Windows events", options: {} }], { x: 0.6, y: 3.4, w: 8.8, h: 1.1, fontSize: 14, color: "CADCFC", margin: 0, isTextBox: true, valign: "top" });
+s.addText([{ text: "Habebur Rahman & ", options: {} }, { text: "Aleena K Mani", options: { highlight: "FFFF00", color: "0B1F2A", bold: true, breakLine: true } }, { text: "Internmo internship project | 22 Sigma rules, 4 correlations, validated on 37,364 real Windows events", options: {} }], { x: 0.6, y: 3.4, w: 8.8, h: 1.1, fontSize: 14, color: "CADCFC", margin: 0, isTextBox: true, valign: "top" });
 s.addNotes("Single-analyst detection engineering engagement. All results come from running rules against real attack telemetry, not assumptions.");
 // 2 Summary
 s = pres.addSlide({ masterName: "LIGHT" }); s.addText("Result: every rule fired on real attack logs", { placeholder: "title" });

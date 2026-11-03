@@ -130,7 +130,7 @@ open("docs/06_executive_summary.md", "w").write(o)
 # ---------------- README ----------------
 o = f"""# Cyberion ThreatShield - Detection Engineering & Threat Hunting
 
-Individual 4-week engagement (project code CDL-DET-V2), compressed delivery. Authors: **Habebur Rahman** and **FRIEND_NAME_HERE**.
+Individual 4-week engagement (project code CDL-DET-V2), compressed delivery. Authors: **Habebur Rahman** and **Aleena K Mani**.
 Everything is evidence-backed: all {ns+nc} rules were executed against {N:,} real Windows events from 278 attack samples.
 
 ## Deliverables (PRD Section 12)
@@ -151,7 +151,7 @@ Everything is evidence-backed: all {ns+nc} rules were executed against {N:,} rea
 
 ## Authors and license
 - Habebur Rahman
-- **FRIEND_NAME_HERE**
+- **Aleena K Mani**
 
 Original work in this repository (rules, tools, documents) is released under the MIT License (see `LICENSE`). The telemetry dataset is **not** redistributed here; EVTX-ATTACK-SAMPLES is a separate project under its own GPL license. See `CONTRIBUTING.md` for how we collaborate.
 

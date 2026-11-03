@@ -8,7 +8,7 @@ references:
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Persistence/evasion_persis_hidden_run_keyvalue_sysmon_13.evtx'
-author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, Aleena K Mani (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.persistence

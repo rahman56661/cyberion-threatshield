@@ -9,8 +9,8 @@ NS = {"e": "http://schemas.microsoft.com/win/2004/08/events/event"}
 
 def parse_file(path):
     rows = []
-    rel = os.path.relpath(path, "data")
-    tactic = rel.split(os.sep)[0]
+    rel = os.path.relpath(path, "data").replace("\\", "/")
+    tactic = rel.split("/")[0]
     try:
         with Evtx(path) as log:
             for rec in log.records():
@@ -45,10 +45,15 @@ def parse_file(path):
     return rows
 
 if __name__ == "__main__":
+    import multiprocessing
+    multiprocessing.freeze_support()
     files = sorted(glob.glob("data/**/*.evtx", recursive=True))
-    with Pool(os.cpu_count()) as p, open("parsed/events.jsonl", "w") as out:
-        n = 0
-        for rows in p.imap(parse_file, files, chunksize=4):
+    print(f"Found {len(files)} files. Parsing takes 5-10 min. Do NOT press Ctrl+C.", flush=True)
+    n = 0
+    with Pool(max(1, (os.cpu_count() or 2) - 1)) as p, open("parsed/events.jsonl", "w", encoding="utf-8") as out:
+        for i, rows in enumerate(p.imap(parse_file, files, chunksize=2), 1):
             for r in rows:
                 out.write(json.dumps(r) + "\n"); n += 1
+            if i % 20 == 0:
+                print(f"{i}/{len(files)} files, {n} events", flush=True)
     print(f"files={len(files)} events={n}")

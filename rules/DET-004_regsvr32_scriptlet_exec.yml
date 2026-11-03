@@ -9,7 +9,7 @@ references:
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx'
 - 'https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES :: Execution/exec_sysmon_1_lolbin_renamed_regsvr32_scrobj.evtx'
-author: Habebur Rahman, FRIEND_NAME_HERE (Cyberion Defense Labs - Detection Engineering)
+author: Habebur Rahman, Aleena K Mani (Cyberion Defense Labs - Detection Engineering)
 date: '2026-11-03'
 tags:
 - attack.stealth

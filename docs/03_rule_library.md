@@ -86,7 +86,7 @@ Technique IDs follow **ATT&CK v20** (tactic *Defense Evasion* no longer exists; 
 - **False positives:** Software installers calling advpack/setupapi exports; Help/URL handlers invoking url.dll from legacy apps
 - **Test result:** 19 events in 10 samples. Samples: `panache_sysmon_vs_EDRTestingScript.evtx`, `Sysmon_Exec_CompiledHTML.evtx`, `exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx`, `exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx` ...
 
-  *Evidence (first match):* `_file=AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx; TimeCreated=2019-07-29 21:34:10.373482+00:00; Computer=MSEDGEWIN10; Image=C:\Windows\System32\cmd.exe; CommandLine=cmd  /c rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";document.write();GetObjec`
+  *Evidence (first match):* `_file=AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx; TimeCreated=2019-07-29 21:34:10.373482+00:00; Computer=MSEDGEWIN10; Image=C:\Windows\System32\cmd.exe; CommandLine=cmd  /c rundll32.exe javascript[:]"\..\mshtml,RunHTML[App] ";document.write();GetObjec`
 
 ## DET-006 - BITSAdmin Used for Transfer or Persistence
 

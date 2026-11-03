@@ -167,83 +167,83 @@
  ],
  "urls": [
   {
-   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/CradleTest.txt",
+   "url": "hxxps://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/CradleTest.txt",
    "count": 8
   },
   {
-   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md",
+   "url": "hxxps://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md",
    "count": 4
   },
   {
-   "url": "https://hotelesms.com/talsk.txt",
+   "url": "hxxps://hotelesms.com/talsk.txt",
    "count": 3
   },
   {
-   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1216/payloads/T1216.sct",
+   "url": "hxxps://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1216/payloads/T1216.sct",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/wmicscript.xsl",
+   "url": "hxxps://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/wmicscript.xsl",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1117/RegSvr32.sct",
+   "url": "hxxps://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1117/RegSvr32.sct",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Mshta_calc.sct",
+   "url": "hxxps://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Mshta_calc.sct",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Cmstp_calc.sct",
+   "url": "hxxps://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Cmstp_calc.sct",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Wmic_calc.xsl",
+   "url": "hxxps://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Wmic_calc.xsl",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/test",
+   "url": "hxxps://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/test",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Cmstp.inf",
+   "url": "hxxps://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Cmstp.inf",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/test.sct",
+   "url": "hxxps://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/test.sct",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/3gstudent/SCTPersistence/master/calc.sct",
+   "url": "hxxps://raw.githubusercontent.com/3gstudent/SCTPersistence/master/calc.sct",
    "count": 2
   },
   {
-   "url": "http://pastebin.com/raw/H4A4iDTA",
+   "url": "hxxp://pastebin.com/raw/H4A4iDTA",
    "count": 2
   },
   {
-   "url": "https://a.uguu.se/Hv0bgvgHGNeH_Bin.7z",
+   "url": "hxxps://a.uguu.se/Hv0bgvgHGNeH_Bin.7z",
    "count": 2
   },
   {
-   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslxmlfile.xml",
+   "url": "hxxps://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslxmlfile.xml",
    "count": 1
   },
   {
-   "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslscript.xsl",
+   "url": "hxxps://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslscript.xsl",
    "count": 1
   },
   {
-   "url": "http://pastebin.com/raw/y2CjnRtH",
+   "url": "hxxp://pastebin.com/raw/y2CjnRtH",
    "count": 1
   },
   {
-   "url": "https://hotelesms.com/Injection.txt",
+   "url": "hxxps://hotelesms.com/Injection.txt",
    "count": 1
   },
   {
-   "url": "https://a.uguu.se/x50IGVBRfr55_test.xsl",
+   "url": "hxxps://a.uguu.se/x50IGVBRfr55_test.xsl",
    "count": 1
   }
  ],
